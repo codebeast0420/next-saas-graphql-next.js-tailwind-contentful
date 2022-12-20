@@ -8,7 +8,7 @@ const Resources = () => {
 	const title = "Introduction to the Problems and Power of Social Media";
 	const content = "This session is an overview session to ensure all students understand how social media platforms are designed and leveraged for good or bad purposes."
 	return (
-		<div>
+		<div style={{ maxWidth: "1374px" }}>
 			<Header />
 			<TopTitle title={"Resources"} />
 			<div className="relative z-[11] bg-white pl-[10%] pr-[10%] mt-[20px]">

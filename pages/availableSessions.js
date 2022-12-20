@@ -40,7 +40,7 @@ const AvailableSessions = () => {
 	}, [])
 
 	return (
-		<div>
+		<div style={{ maxWidth: "1374px" }}>
 			<Header />
 			<TopTitle title={"Available Sessions"} />
 			<div className="relative z-[11] pl-[15%] pr-[15%] bg-white">
