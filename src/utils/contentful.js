@@ -101,5 +101,48 @@ export async function getFactAndQuote() {
 	return data.landingPageFactsAndQuotes;
 }
 
+export async function getSessionAddtionalInfo() {
+	const { data } = await apolloClient.query({
+		query: gql`
+      query GetSessionAddtionalInfo {
+				sessionAdditionalInfoSectionCollection {
+					items {
+					 header
+					 body {
+						 json 
+					 }
+				 }
+			 }
+      }
+    `,
+	});
+	return data.sessionAdditionalInfoSectionCollection;
+}
 
-export default { getHeroSection, getSession, getAboutUs, getWahtYouWillGain, getSessionList, getFactAndQuote };
+export async function getSpeaker() {
+	const { data } = await apolloClient.query({
+		query: gql`
+      query GetSpeaker {
+				speakerCollection{
+					items {
+						name
+						background
+					}
+				}
+      }
+    `,
+	});
+	return data.speakerCollection;
+}
+
+
+export default {
+	getHeroSection,
+	getSession,
+	getAboutUs,
+	getWahtYouWillGain,
+	getSessionList,
+	getFactAndQuote,
+	getSessionAddtionalInfo,
+	getSpeaker
+};

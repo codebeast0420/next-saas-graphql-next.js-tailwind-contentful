@@ -30,7 +30,7 @@ const IntroHome = () => {
 						<p className="mt-[10px] text-center text-sm pl-[10%] pr-[10%] text-black">{sessionData}</p>
 					</div>
 					<div className="flex mt-[10px] flex-col w-full">
-						<Date date={"January 22, 2023"} time={"03:00PM - 05:00PM ET"} />
+						<Date date={"January 22, 2023"} time={"03:00PM - 05:00PM ET"} className={"justify-center "}/>
 						<div className=" flex justify-between mt-[-30px]">
 							<Image src="/src/img/megaphone1.png" width={60} height={60} alt="megaphone left" />
 							<Image src="/src/img/megaphone2.png" width={60} height={60} alt="megaphone right" />

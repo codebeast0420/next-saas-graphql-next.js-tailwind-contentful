@@ -2,9 +2,9 @@ import styles from '../styles/Home.module.css'
 import Image from 'next/image';
 import Logo from './logo';
 
-const Header = ({intro, setIntro}) => {
+const Header = ({ intro, setIntro }) => {
   return (
-    <div className={styles.header}>
+    <div className={styles.header} style={{ position: "relative", zIndex: "11" }}>
       <Logo />
       <nav className="px-2 bg-inherit ml-[20%]">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
