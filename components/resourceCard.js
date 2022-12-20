@@ -9,7 +9,7 @@ const ResourceCard = ({ img, title, content, children }) => {
 					{children}
 				</div>
 				<div className="mt-[20px]">
-					<p className="text-black font-bold capitalize" style={{ fontFamily: "" }}>{title}</p>
+					<p className="text-[#142630] font-bold capitalize" style={{ fontFamily: "" }}>{title}</p>
 					<p className="text-[#475060] non-italic font-medium" style={{ fontFamily: "Jost" }}>{content}</p>
 					<a href="#" className="mt-[40px] text-[#1CCADF] flex items-center">
 						<p style={{ fontFamily: "" }}>More Information</p>

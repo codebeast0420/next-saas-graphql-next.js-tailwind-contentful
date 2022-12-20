@@ -91,7 +91,7 @@ const AboutUs = () => {
 				<TopTitle title={header} />
 				<div className="relative z-[11] pl-[10%] pr-[10%] pt-[80px] flex" style={{ maxWidth: "1374px" }} >
 					<div className="w-[50%]">
-						<p className="font-medium text-2xl text-black" style={{ fontFamily: "" }}>{studentLeadersHeader}</p>
+						<p className="font-medium text-2xl text-[#142630]" style={{ fontFamily: "" }}>{studentLeadersHeader}</p>
 						<div className="mt-[10px] flex justify-evenly flex-wrap ml-[-10px]" >
 							<AboutUsCard />
 							<AboutUsCard />
@@ -106,26 +106,26 @@ const AboutUs = () => {
 						</div>
 					</div>
 					<div className="w-[50%] pl-[25px] mb-[50px]" style={{ borderLeft: "1px solid #D9D9D9" }}>
-						<p className="font-medium text-2xl text-black" style={{ fontFamily: "" }}>{subheading}</p>
+						<p className="font-medium text-2xl text-[#142630]" style={{ fontFamily: "" }}>{subheading}</p>
 						{text1.map((text, index) => (
 							<>
-								<p className="mt-[15px] text-black" key={index} style={{ fontFamily: "Jost" }}>{text}</p>
+								<p className="mt-[15px] text-[#475060]" key={index} style={{ fontFamily: "Jost" }}>{text}</p>
 							</>
 						))}
 						{text2.map((text, index) => (
 							<>
 								{index === 0 && (
-									<p className="mt-[15px] font-medium text-lg text-black" key={index} style={{ fontFamily: "Jost" }}>Host Organization:</p>
+									<p className="mt-[15px] font-bold text-lg text-[#142630]" key={index} style={{ fontFamily: "Jost" }}>Host Organization:</p>
 								)}
 								{index !== 0 && (
-									<p className="mt-[15px] text-black" key={index} style={{ fontFamily: "Jost" }}>{text}</p>
+									<p className="mt-[15px] text-[#475060]" key={index} style={{ fontFamily: "Jost" }}>{text}</p>
 								)}
 							</>
 						))}
-						<p className="mt-[15px] font-medium text-lg text-black" style={{ fontFamily: "Jost" }}>{text3[0]}</p>
-						<p className="mt-[15px] text-black" style={{ fontFamily: "Jost" }}>{text4[0]}</p>
-						<p className="mt-[15px] text-black" style={{ fontFamily: "Jost" }}>{text5[0]}</p>
-						<p className="mt-[15px] text-black" style={{ fontFamily: "Jost" }}>{text6[0]}</p>
+						<p className="mt-[15px] font-bold text-lg text-[#142630]" style={{ fontFamily: "Jost" }}>{text3[0]}</p>
+						<p className="mt-[15px] text-[#475060]" style={{ fontFamily: "Jost" }}>{text4[0]}</p>
+						<p className="mt-[15px] text-[#475060]" style={{ fontFamily: "Jost" }}>{text5[0]}</p>
+						<p className="mt-[15px] text-[#475060]" style={{ fontFamily: "Jost" }}>{text6[0]}</p>
 					</div>
 				</div>
 				<Bottom />

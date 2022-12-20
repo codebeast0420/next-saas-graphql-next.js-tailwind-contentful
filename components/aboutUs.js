@@ -18,9 +18,9 @@ const AboutUs = () => {
 			<div style={{ maxWidth: "1374px" }}>
 				<div className=" pl-[10%] pr-[10%] flex">
 					<div className="w-2/3">
-						<p className="text-lg text-black" style={{ fontFamily: "" }}>Our Stroy</p>
-						<p className="text-3xl font-bold mt-[5px]" style={{ fontFamily: "" }}>{header}</p>
-						<p className="mt-[15px] text-black" style={{ fontFamily: "Jost" }}>
+						<p className="text-lg text-[#142630]" style={{ fontFamily: "" }}>Our Stroy</p>
+						<p className="text-3xl font-bold mt-[5px] text-[#142630]" style={{ fontFamily: "" }}>{header}</p>
+						<p className="mt-[15px] text-[#475060]" style={{ fontFamily: "Jost" }}>
 							Social Media for Social Justice was conceived by Trish Brennan-Gac and is
 							being incubated through the Youth Creating Change (YCC)
 							Fellowship of Communities United Against Hate (CUAH) founded by Paul Tiao.
@@ -28,7 +28,7 @@ const AboutUs = () => {
 							Texas, and the District of Columbia. The curriculum is being developed in consultation with
 							experts in disinformation, online organizing, and curriculum development and facilitation.
 						</p>
-						<p className="mt-[15px] text-black" style={{ fontFamily: "Jost" }}>
+						<p className="mt-[15px] text-[#475060]" style={{ fontFamily: "Jost" }}>
 							Planning began in August 2021. The pilot will launch in January 2023 with a goal of 150 students.
 							Additional sessions are scheduled for February and March.
 						</p>

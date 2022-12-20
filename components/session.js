@@ -22,8 +22,8 @@ const Session = () => {
 				<div className="pt-[100px] pl-[10%] pr-[10%] pb-[100px] w-full">
 					<div className="flex">
 						<div>
-							<p className="text-lg text-black" style={{ fontFamily: "" }}>{preHeader}</p>
-							<p className="text-3xl font-bold mt-[5px] text-black " style={{ fontFamily: "" }}>{header}</p>
+							<p className="text-lg text-[#475060]" style={{ fontFamily: "" }}>{preHeader}</p>
+							<p className="text-3xl font-bold mt-[5px] text-[#142630] " style={{ fontFamily: "" }}>{header}</p>
 						</div>
 						<div className="text-black flex  ml-[20%]">
 							<CommonBtn text={"Upcoming Sessions"} pdSmall={true} />
