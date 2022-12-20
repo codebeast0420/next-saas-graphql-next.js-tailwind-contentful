@@ -34,6 +34,7 @@ const AvailableSessions = () => {
 
 		getSpeaker().then((res) => {
 			setSpeakers(res.items);
+			console.log(res.items);
 		})
 	}, [])
 
