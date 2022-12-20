@@ -5,7 +5,7 @@ const Speaker = ({ img, name, content }) => {
 		<div className="mt-[10px] pb-[10px]" style={{ borderBottom: "1px solid rgba(71, 80, 96, .2)" }}>
 			<div className="flex">
 				<Image src={img} width={70} height={70} alt="speaker" className="rounded-[5rem]" />
-				<div className="ml-[20px]">
+				<div className="ml-[20px] w-[72%]">
 					<p className="font-bold text-md text-black" style={{ fontFamily: "Jost" }}>{name}</p>
 					<p className="text-[#475060]" style={{ fontFamily: "Jost" }}>{content}</p>
 				</div>

@@ -40,34 +40,36 @@ const AvailableSessions = () => {
 	}, [])
 
 	return (
-		<div style={{ maxWidth: "1374px" }}>
-			<Header />
-			<TopTitle title={"Available Sessions"} />
-			<div className="relative z-[11] pl-[15%] pr-[15%] bg-white">
-				<AvailableCard img={"/src/img/image 7-lg.png"} title={title1} description={description1} subtitles={subtitles1}>
-					<SessionSpeaker>
-						<Speaker img={"/src/img/speaker1.png"} name={speakers[0] ? speakers[0].name : ""} content={speakers[0] ? speakers[0].background : ""} />
-						<Speaker img={"/src/img/speaker2.png"} name={speakers[1] ? speakers[1].name : ""} content={speakers[1] ? speakers[1].background : ""} />
-					</SessionSpeaker>
-					<Social />
-				</AvailableCard>
-				<AvailableCard img={"/src/img/image 10-lg.png"} title={title1} description={description1} indexPart={indexPart2}>
-					<SessionSpeaker>
-						<Speaker img={"/src/img/speaker1.png"} name={speakers[0] ? speakers[0].name : ""} content={speakers[0] ? speakers[0].background : ""} />
-						<Speaker img={"/src/img/speaker2.png"} name={speakers[1] ? speakers[1].name : ""} content={speakers[1] ? speakers[1].background : ""} />
-						<Speaker img={"/src/img/speaker3.png"} name={"Laurie Moskowitz"} content={"LORE Strategies"} />
-					</SessionSpeaker>
-					<Social />
-				</AvailableCard>
-				<AvailableCard img={"/src/img/image 11-lg.png"} title={"What Can You Trust?"} description={description3} >
-					<SessionSpeaker>
-						<Speaker img={"/src/img/speaker1.png"} name={speakers[0] ? speakers[0].name : ""} content={speakers[0] ? speakers[0].background : ""} />
-						<Speaker img={"/src/img/speaker3.png"} name={"Laurie Moskowitz"} content={"LORE Strategies"} />
-					</SessionSpeaker>
-					<Social />
-				</AvailableCard>
+		<div className="flex justify-center bg-white" >
+			<div style={{ maxWidth: "1374px" }}>
+				<Header />
+				<TopTitle title={"Available Sessions"} />
+				<div className="relative z-[11] pl-[15%] pr-[15%] bg-white">
+					<AvailableCard img={"/src/img/image 7-lg.png"} title={title1} description={description1} subtitles={subtitles1}>
+						<SessionSpeaker>
+							<Speaker img={"/src/img/speaker1.png"} name={speakers[0] ? speakers[0].name : ""} content={speakers[0] ? speakers[0].background : ""} />
+							<Speaker img={"/src/img/speaker2.png"} name={speakers[1] ? speakers[1].name : ""} content={speakers[1] ? speakers[1].background : ""} />
+						</SessionSpeaker>
+						<Social />
+					</AvailableCard>
+					<AvailableCard img={"/src/img/image 10-lg.png"} title={title1} description={description1} indexPart={indexPart2}>
+						<SessionSpeaker>
+							<Speaker img={"/src/img/speaker1.png"} name={speakers[0] ? speakers[0].name : ""} content={speakers[0] ? speakers[0].background : ""} />
+							<Speaker img={"/src/img/speaker2.png"} name={speakers[1] ? speakers[1].name : ""} content={speakers[1] ? speakers[1].background : ""} />
+							<Speaker img={"/src/img/speaker3.png"} name={"Laurie Moskowitz"} content={"LORE Strategies"} />
+						</SessionSpeaker>
+						<Social />
+					</AvailableCard>
+					<AvailableCard img={"/src/img/image 11-lg.png"} title={"What Can You Trust?"} description={description3} >
+						<SessionSpeaker>
+							<Speaker img={"/src/img/speaker1.png"} name={speakers[0] ? speakers[0].name : ""} content={speakers[0] ? speakers[0].background : ""} />
+							<Speaker img={"/src/img/speaker3.png"} name={"Laurie Moskowitz"} content={"LORE Strategies"} />
+						</SessionSpeaker>
+						<Social />
+					</AvailableCard>
+				</div>
+				<Bottom />
 			</div>
-			<Bottom />
 		</div>
 	)
 }
