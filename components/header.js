@@ -1,8 +1,10 @@
 import styles from '../styles/Home.module.css'
 import Image from 'next/image';
 import Logo from './logo';
+import { useState } from 'react';
 
-const Header = ({ intro, setIntro }) => {
+const Header = ({ intro, setIntro, current }) => {
+
   return (
     <div className={styles.header} style={{ position: "relative", zIndex: "11" }}>
       <Logo />
@@ -13,26 +15,41 @@ const Header = ({ intro, setIntro }) => {
               <li>
                 <a
                   href="/"
-                  className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
+                  className="block py-2 pl-3 pr-4 flex flex-col items-center text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
                   aria-current="page"
                 >
                   HOME
+                  {current === 1 && (
+                    <svg className='mt-[30px]' width="20" height="3" viewBox="0 0 20 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="20" height="3" rx="1.5" fill="#3185FC" />
+                    </svg>
+                  )}
                 </a>
               </li>
               <li>
                 <a
                   href="/aboutUs"
-                  className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 pl-3 pr-4 text-gray-700 flex flex-col items-center rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
                   ABOUT US
+                  {current === 2 && (
+                    <svg className='mt-[30px]' width="20" height="3" viewBox="0 0 20 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="20" height="3" rx="1.5" fill="#3185FC" />
+                    </svg>
+                  )}
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                  className="block py-2 pl-3 pr-4 text-gray-700 rounded flex flex-col items-center hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
                   WHAT YOU WILL GAIN
+                  {current === 3 && (
+                    <svg className='mt-[30px]' width="20" height="3" viewBox="0 0 20 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="20" height="3" rx="1.5" fill="#3185FC" />
+                    </svg>
+                  )}
                 </a>
               </li>
               <li>

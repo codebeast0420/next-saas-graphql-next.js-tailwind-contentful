@@ -25,6 +25,7 @@ const Landing = () => {
 						<h1 className="text-[50px] font-semibold text-black" style={{ fontFamily: "Lato" }}>{heroHeader}</h1>
 						<p className="font-normal text-base text-black" style={{ fontFamily: "Jost" }}>{heroSub}</p>
 						<CommonBtn text={"Join Us Today!"} onClick={() => setIntro(true)} />
+						<CommonBtn text={"Support Us Now"} className={"pl-[20px]"}/>
 					</div>
 					<div className="w-2/5 mt-[20px] ml-[18%] pb-8 z-1">
 						<Image src="/src/img/Group.png" width={530} height={465} alt="main image" />

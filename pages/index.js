@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <div className={styles.home}>
         <div className='w-full flex flex-col items-center'>
-          <Header />
+          <Header current={1}/>
           <Landing />
         </div>
       </div>

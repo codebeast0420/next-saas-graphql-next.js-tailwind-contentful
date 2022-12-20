@@ -82,7 +82,7 @@ const AboutUs = () => {
 	return (
 		<div className={styles.home} >
 			<div className="flex flex-col items-center w-full">
-				<Header />
+				<Header current={2}/>
 				<TopTitle title={header} />
 				<div className="relative z-[11] pl-[10%] pr-[10%] pt-[80px] flex" style={{ maxWidth: "1374px" }} >
 					<div className="w-[50%]">
