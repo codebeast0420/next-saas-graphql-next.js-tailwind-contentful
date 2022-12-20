@@ -1,0 +1,16 @@
+.home {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  background: linear-gradient(242.14deg, #EAF8FA 0%, #EFFCF7 100%);
+  height: 80px;
+  width: 100%;
+  display: flex;
+  padding-left: 10%;
+  flex-direction: row;
+  align-items: center;
+}
