@@ -7,7 +7,7 @@ const SessionCard = ({ src, title, text, date, time }) => {
 			<div style={{borderBottom:"1px solid rgb(71, 80, 96, 0.15)"}} className={"pb-[10px]"}>
 				<Image src={src} width={350} height={193} alt="session card" />
 				<Date date={date} time={time} className={"justify-center  text-[13px] mt-[10px]"} />
-				<div className="mt-[10px] font-medium text-xl text-black" style={{ fontFamily: "Lato" }}>{title}</div>
+				<div className="mt-[10px] font-medium text-xl text-black" style={{ fontFamily: "" }}>{title}</div>
 				<div className="mt-[10px] text-black" style={{ fontFamily: "Jost" }}>{text}</div>
 			</div>
 			<div className="mt-[10px]">

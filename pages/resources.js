@@ -23,7 +23,7 @@ const Resources = () => {
 			<TopTitle title={"Resources"} />
 			<div className="relative z-[11] bg-white pl-[10%] pr-[10%] mt-[20px]" style={{ maxWidth: "1374px" }}>
 				<div>
-					<p className="text-[#142630] font-bold non-italic text-2xl" style={{ fontFamily: "Lato" }}>Tags:</p>
+					<p className="text-[#142630] font-bold non-italic text-2xl" style={{ fontFamily: "" }}>Tags:</p>
 					<div className="flex ">
 						<CommonBtn text={"Video"} />
 						<CommonBtn text={"Article"} bgColor={"bg-[#e1e4ea]"} className={"ml-[10px]"} />
