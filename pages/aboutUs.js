@@ -85,7 +85,7 @@ const AboutUs = () => {
 				<Header />
 				<TopTitle title={header} />
 				<div className="relative z-[11] pl-[10%] pr-[10%] pt-[80px] flex ">
-					<div className="w-[45%]">
+					<div className="w-[50%]">
 						<p className="font-medium text-2xl text-black">{studentLeadersHeader}</p>
 						<div className="mt-[10px] flex justify-evenly flex-wrap ml-[-10px]" >
 							<AboutUsCard />
@@ -100,7 +100,7 @@ const AboutUs = () => {
 							<AboutUsCard />
 						</div>
 					</div>
-					<div className="w-[50%] pl-[10px] mb-[50px]" style={{ borderLeft: "1px solid #D9D9D9" }}>
+					<div className="w-[50%] pl-[25px] mb-[50px]" style={{ borderLeft: "1px solid #D9D9D9" }}>
 						<p className="font-medium text-2xl text-black">{subheading}</p>
 						{text1.map((text, index) => (
 							<>
