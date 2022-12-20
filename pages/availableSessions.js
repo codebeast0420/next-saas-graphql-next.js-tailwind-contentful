@@ -1,5 +1,6 @@
 import { use, useEffect, useState } from "react";
 import AvailableCard from "../components/availableCard";
+import Bottom from "../components/bottom";
 import Header from "../components/header"
 import SessionSpeaker from "../components/sessionSpeaker";
 import Social from "../components/social";
@@ -66,6 +67,7 @@ const AvailableSessions = () => {
 					<Social />
 				</AvailableCard>
 			</div>
+			<Bottom />
 		</div>
 	)
 }
