@@ -4,7 +4,6 @@ import { HttpLink } from "apollo-link-http";
 
 const TOKEN = process.env.NEXT_PUBLIC_ACCESS_TOKEN;
 const SPACE = process.env.NEXT_PUBLIC_SPACE_ID;
-console.log("adsf", SPACE, TOKEN);
 const URL = `https://graphql.contentful.com/content/v1/spaces/ddgzaaogwqkq`;
 
 const http = new HttpLink({
