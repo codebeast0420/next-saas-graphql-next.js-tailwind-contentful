@@ -9,7 +9,6 @@ const Bottom = () => {
 					<div className="flex text-white justify-between w-[50%]">
 						<a href="/" style={{ fontFamily: "" }}>HOME</a>
 						<a href="/aboutus" style={{ fontFamily: "" }}>ABOUT US</a>
-						<a href="#" style={{ fontFamily: "" }}>WHAT YOU WILL GAIN</a>
 						<a href="#" style={{ fontFamily: "" }}>UPCOMING SESSIONS</a>
 					</div>
 				</div>
