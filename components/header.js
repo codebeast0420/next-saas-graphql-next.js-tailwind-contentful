@@ -15,7 +15,7 @@ const Header = ({ intro, setIntro, current }) => {
               <li>
                 <a
                   href="/"
-                  className="block py-2 pl-3 pr-4 flex flex-col items-center text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
+                  className="block py-2 pl-3 pr-4 flex flex-col items-center text-blue-700 bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
                   aria-current="page"
                 >
                   HOME
