@@ -81,10 +81,10 @@ const AboutUs = () => {
 	}, [])
 	return (
 		<div className={styles.home} >
-			<div style={{ maxWidth: "1374px" }}>
+			<div className="flex flex-col items-center w-full">
 				<Header />
 				<TopTitle title={header} />
-				<div className="relative z-[11] pl-[10%] pr-[10%] pt-[80px] flex ">
+				<div className="relative z-[11] pl-[10%] pr-[10%] pt-[80px] flex" style={{ maxWidth: "1374px" }} >
 					<div className="w-[50%]">
 						<p className="font-medium text-2xl text-black">{studentLeadersHeader}</p>
 						<div className="mt-[10px] flex justify-evenly flex-wrap ml-[-10px]" >

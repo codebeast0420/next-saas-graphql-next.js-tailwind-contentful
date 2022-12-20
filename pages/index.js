@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <div className={styles.home}>
-        <div style={{maxWidth: "1374px"}}>
+        <div className='w-full flex flex-col items-center'>
           <Header />
           <Landing />
         </div>
