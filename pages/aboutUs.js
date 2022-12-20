@@ -5,7 +5,7 @@ import Header from "../components/header"
 import TopTitle from "../components/topTitle";
 import { getAboutUs } from "../src/utils/contentful";
 import styles from '../styles/Home.module.css'
-import WebFont from "webfontloader";
+// import WebFont from "webfontloader";
 
 const AboutUs = () => {
 	const [header, setHeader] = useState('');
@@ -77,12 +77,12 @@ const AboutUs = () => {
 				}
 			}
 			setText6(temp);
-			WebFont.load({
-				google: {
-					families: ['Lato', 'Jost']
-				}
-			});
-		})
+		// 	WebFont.load({
+		// 		google: {
+		// 			families: ['Lato', 'Jost']
+		// 		}
+		// 	});
+		// })
 	}, [])
 	return (
 		<div className={styles.home} >

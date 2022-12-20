@@ -4,16 +4,16 @@ import Header from "../components/header";
 import ResourceCard from "../components/resourceCard";
 import TopTitle from "../components/topTitle";
 import { useEffect } from "react";
-import WebFont from "webfontloader";
+// import WebFont from "webfontloader";
 
 const Resources = () => {
-	useEffect(() => {
-		WebFont.load({
-			google: {
-				families: ['Lato', 'Jost']
-			}
-		})
-	},[])
+	// useEffect(() => {
+	// 	WebFont.load({
+	// 		google: {
+	// 			families: ['Lato', 'Jost']
+	// 		}
+	// 	})
+	// },[])
 
 	const title = "Introduction to the Problems and Power of Social Media";
 	const content = "This session is an overview session to ensure all students understand how social media platforms are designed and leveraged for good or bad purposes."

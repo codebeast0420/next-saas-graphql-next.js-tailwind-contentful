@@ -7,7 +7,7 @@ import Social from "../components/social";
 import Speaker from "../components/speaker";
 import TopTitle from "../components/topTitle"
 import { getSession, getSessionAddtionalInfo, getSpeaker } from "../src/utils/contentful";
-import WebFont from "webfontloader";
+// import WebFont from "webfontloader";
 
 const AvailableSessions = () => {
 	const [title1, setTitle1] = useState('');
@@ -39,11 +39,11 @@ const AvailableSessions = () => {
 			console.log(res.items);
 		})
 
-		WebFont.load({
-			google: {
-				families: ['Lato', 'Jost']
-			}
-		});
+		// WebFont.load({
+		// 	google: {
+		// 		families: ['Lato', 'Jost']
+		// 	}
+		// });
 	}, [])
 
 	return (
