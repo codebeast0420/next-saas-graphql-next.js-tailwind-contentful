@@ -5,6 +5,7 @@ import Header from "../components/header"
 import TopTitle from "../components/topTitle";
 import { getAboutUs } from "../src/utils/contentful";
 import styles from '../styles/Home.module.css'
+import WebFont from "webfontloader";
 
 const AboutUs = () => {
 	const [header, setHeader] = useState('');
@@ -76,17 +77,21 @@ const AboutUs = () => {
 				}
 			}
 			setText6(temp);
-
+			WebFont.load({
+				google: {
+					families: ['Lato', 'Jost']
+				}
+			});
 		})
 	}, [])
 	return (
 		<div className={styles.home} >
 			<div className="flex flex-col items-center w-full">
-				<Header current={2}/>
+				<Header current={2} />
 				<TopTitle title={header} />
 				<div className="relative z-[11] pl-[10%] pr-[10%] pt-[80px] flex" style={{ maxWidth: "1374px" }} >
 					<div className="w-[50%]">
-						<p className="font-medium text-2xl text-black">{studentLeadersHeader}</p>
+						<p className="font-medium text-2xl text-black" style={{ fontFamily: "Lato" }}>{studentLeadersHeader}</p>
 						<div className="mt-[10px] flex justify-evenly flex-wrap ml-[-10px]" >
 							<AboutUsCard />
 							<AboutUsCard />
@@ -101,26 +106,26 @@ const AboutUs = () => {
 						</div>
 					</div>
 					<div className="w-[50%] pl-[25px] mb-[50px]" style={{ borderLeft: "1px solid #D9D9D9" }}>
-						<p className="font-medium text-2xl text-black">{subheading}</p>
+						<p className="font-medium text-2xl text-black" style={{ fontFamily: "Lato" }}>{subheading}</p>
 						{text1.map((text, index) => (
 							<>
-								<p className="mt-[15px] text-black" key={index}>{text}</p>
+								<p className="mt-[15px] text-black" key={index} style={{ fontFamily: "Jost" }}>{text}</p>
 							</>
 						))}
 						{text2.map((text, index) => (
 							<>
 								{index === 0 && (
-									<p className="mt-[15px] font-medium text-lg text-black" key={index}>Host Organization:</p>
+									<p className="mt-[15px] font-medium text-lg text-black" key={index} style={{ fontFamily: "Jost" }}>Host Organization:</p>
 								)}
 								{index !== 0 && (
-									<p className="mt-[15px] text-black" key={index}>{text}</p>
+									<p className="mt-[15px] text-black" key={index} style={{ fontFamily: "Jost" }}>{text}</p>
 								)}
 							</>
 						))}
-						<p className="mt-[15px] font-medium text-lg text-black">{text3[0]}</p>
-						<p className="mt-[15px] text-black">{text4[0]}</p>
-						<p className="mt-[15px] text-black">{text5[0]}</p>
-						<p className="mt-[15px] text-black">{text6[0]}</p>
+						<p className="mt-[15px] font-medium text-lg text-black" style={{ fontFamily: "Jost" }}>{text3[0]}</p>
+						<p className="mt-[15px] text-black" style={{ fontFamily: "Jost" }}>{text4[0]}</p>
+						<p className="mt-[15px] text-black" style={{ fontFamily: "Jost" }}>{text5[0]}</p>
+						<p className="mt-[15px] text-black" style={{ fontFamily: "Jost" }}>{text6[0]}</p>
 					</div>
 				</div>
 				<Bottom />

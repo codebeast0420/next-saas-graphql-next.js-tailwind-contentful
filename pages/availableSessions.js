@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AvailableCard from "../components/availableCard";
 import Bottom from "../components/bottom";
 import Header from "../components/header"
@@ -7,6 +7,7 @@ import Social from "../components/social";
 import Speaker from "../components/speaker";
 import TopTitle from "../components/topTitle"
 import { getSession, getSessionAddtionalInfo, getSpeaker } from "../src/utils/contentful";
+import WebFont from "webfontloader";
 
 const AvailableSessions = () => {
 	const [title1, setTitle1] = useState('');
@@ -37,6 +38,12 @@ const AvailableSessions = () => {
 			setSpeakers(res.items);
 			console.log(res.items);
 		})
+
+		WebFont.load({
+			google: {
+				families: ['Lato', 'Jost']
+			}
+		});
 	}, [])
 
 	return (

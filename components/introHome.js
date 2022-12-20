@@ -28,7 +28,7 @@ const IntroHome = () => {
 						<p className="text-[#FF9900]">First Session</p>
 						<div className="mt-[10px] flex flex-col items-center">
 							<h1 style={{ fontFamily: 'Lato' }} className="font-bold text-3xl text-black">{sessionTitle}</h1>
-							<p className="mt-[10px] text-center text-sm pl-[10%] pr-[10%] text-black">{sessionData}</p>
+							<p style={{ fontFamily: 'Jost' }} className="mt-[10px] text-center text-sm pl-[10%] pr-[10%] text-black">{sessionData}</p>
 						</div>
 						<div className="flex mt-[10px] flex-col w-full">
 							<Date date={"January 22, 2023"} time={"03:00PM - 05:00PM ET"} className={"justify-center "} />

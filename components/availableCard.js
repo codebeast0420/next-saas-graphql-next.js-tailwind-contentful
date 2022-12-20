@@ -16,7 +16,7 @@ const AvailableCard = ({ children, img, title, description, subtitles, indexPart
 						</div>
 						<div>
 							<div className="mt-[10px]">
-								<p className="text-4xl font-bold text-black capitalize">{title}</p>
+								<p className="text-4xl font-bold text-black capitalize" style={{ fontFamily: "Lato" }}>{title}</p>
 								<p className="mt-[20px] text-[#475060]" style={{ fontFamily: "Jost" }}>{description}</p>
 							</div>
 							{subtitles && subtitles.map((subtitle, index) => (

@@ -22,7 +22,7 @@ const Landing = () => {
 			<div className="flex flex-col items-center" style={{ background: "linear-gradient(242.14deg, #EAF8FA 0%, #EFFCF7 100%)" }}>
 				<div className="flex" style={{ maxWidth: "1374px" }}>
 					<div className="hero ml-[10%] w-[27%] mt-[85px]">
-						<h1 className="text-[50px] font-semibold text-black" style={{ fontFamily: "Lato" }}>{heroHeader}</h1>
+						<h1 className="text-[50px] font-semibold text-black capitalize" style={{ fontFamily: "Lato" }}>{heroHeader}</h1>
 						<p className="font-normal text-base text-black" style={{ fontFamily: "Jost" }}>{heroSub}</p>
 						<CommonBtn text={"Join Us Today!"} onClick={() => setIntro(true)} />
 						<CommonBtn text={"Support Us Now"} className={"pl-[20px]"}/>

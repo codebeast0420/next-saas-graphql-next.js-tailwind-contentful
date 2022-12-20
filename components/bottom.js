@@ -7,10 +7,10 @@ const Bottom = () => {
 				<div className="flex justify-between">
 					<Logo />
 					<div className="flex text-white justify-between w-[50%]">
-						<a href="/">HOME</a>
-						<a href="/aboutus">ABOUT US</a>
-						<a href="#">WHAT YOU WILL GAIN</a>
-						<a href="#">UPCOMING SESSIONS</a>
+						<a href="/" style={{ fontFamily: "Lato" }}>HOME</a>
+						<a href="/aboutus" style={{ fontFamily: "Lato" }}>ABOUT US</a>
+						<a href="#" style={{ fontFamily: "Lato" }}>WHAT YOU WILL GAIN</a>
+						<a href="#" style={{ fontFamily: "Lato" }}>UPCOMING SESSIONS</a>
 					</div>
 				</div>
 				<svg className="mt-[40px]" width="1000" height="1" viewBox="0 0 1200 1" fill="none" xmlns="http://www.w3.org/2000/svg">

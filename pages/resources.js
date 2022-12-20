@@ -3,8 +3,18 @@ import CommonBtn from "../components/commonBtn";
 import Header from "../components/header";
 import ResourceCard from "../components/resourceCard";
 import TopTitle from "../components/topTitle";
+import { useEffect } from "react";
+import WebFont from "webfontloader";
 
 const Resources = () => {
+	useEffect(() => {
+		WebFont.load({
+			google: {
+				families: ['Lato', 'Jost']
+			}
+		})
+	},[])
+
 	const title = "Introduction to the Problems and Power of Social Media";
 	const content = "This session is an overview session to ensure all students understand how social media platforms are designed and leveraged for good or bad purposes."
 	return (
@@ -13,7 +23,7 @@ const Resources = () => {
 			<TopTitle title={"Resources"} />
 			<div className="relative z-[11] bg-white pl-[10%] pr-[10%] mt-[20px]" style={{ maxWidth: "1374px" }}>
 				<div>
-					<p className="text-[#142630] font-bold non-italic text-2xl">Tags:</p>
+					<p className="text-[#142630] font-bold non-italic text-2xl" style={{ fontFamily: "Lato" }}>Tags:</p>
 					<div className="flex ">
 						<CommonBtn text={"Video"} />
 						<CommonBtn text={"Article"} bgColor={"bg-[#e1e4ea]"} className={"ml-[10px]"} />

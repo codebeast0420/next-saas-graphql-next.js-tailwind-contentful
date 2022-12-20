@@ -22,8 +22,8 @@ const WhatWeDo = () => {
 			<div style={{ maxWidth: "1374px" }}>
 				<div className="text-black pt-[200px] pl-[10%] pr-[10%] pb-[50px] flex" >
 					<div className="w-2/3">
-						<p className="text-lg">{preheader}</p>
-						<p className="text-3xl font-bold mt-[5px]">{header}</p>
+						<p className="text-lg" style={{ fontFamily: "Lato" }}>{preheader}</p>
+						<p className="text-3xl font-bold mt-[5px]" style={{ fontFamily: "Lato" }}>{header}</p>
 						<p className="mt-[15px] text-black" style={{ fontFamily: "Jost" }}>
 							Our approach is to create an interactive online training experience and
 							foster connections to various interest groups that have successfully employed
