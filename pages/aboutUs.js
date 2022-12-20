@@ -77,12 +77,12 @@ const AboutUs = () => {
 				}
 			}
 			setText6(temp);
-		// 	WebFont.load({
-		// 		google: {
-		// 			families: ['Lato', 'Jost']
-		// 		}
-		// 	});
-		// })
+			// WebFont.load({
+			// 	google: {
+			// 		families: ['Lato', 'Jost']
+			// 	}
+			// });
+		})
 	}, [])
 	return (
 		<div className={styles.home} >
