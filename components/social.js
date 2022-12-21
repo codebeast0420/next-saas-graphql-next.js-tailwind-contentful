@@ -1,7 +1,7 @@
 const Social = () => {
 	return (
 		<div className="pt-[15px] mt-[20px] pl-[15px] pr-[15px] bg-[#F5F5F5] ml-[50px] rounded-[10px] pb-[20px]">
-			<p className="font-medium text-[#475060]">Share With Your Friends:</p>
+			<p className="font-medium text-[#475060]" style={{ fontFamily: "Lato" }}>Share With Your Friends:</p>
 			<div className="w-full bg-white flex rounded-[30px] p-[10px] items-center mt-[10px] justify-between cursor-pointer">
 				<div className="items-center flex ">
 					<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">

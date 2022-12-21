@@ -11,11 +11,11 @@ const SessionCard = ({ src, title, text, date, time }) => {
 				<div className="mt-[10px] text-[#475060]" style={{ fontFamily: "Jost" }}>{text}</div>
 			</div>
 			<div className="mt-[10px]">
-				<p className="text-[#3185FC]">Speakers:</p>
+				<p className="text-[#3185FC]" style={{ fontFamily: "Lato" }}>Speakers:</p>
 				<div className="flex text-[13px] justify-between text-black">
-					<p>Rewan AI Hadded</p>
-					<p>Lola Nordinger</p>
-					<p>Imran Ahmend</p>
+					<p style={{ fontFamily: "Lato" }}>Rewan AI Hadded</p>
+					<p style={{ fontFamily: "Lato" }}>Lola Nordinger</p>
+					<p style={{ fontFamily: "Lato" }}>Imran Ahmend</p>
 				</div>
 			</div>
 		</div>

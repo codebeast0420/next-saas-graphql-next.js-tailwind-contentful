@@ -1,10 +1,7 @@
 import styles from '../styles/Home.module.css'
 import Logo from './logo';
-import { Inter } from '@next/font/google';
 
-const inter = Inter({ subsets: ['lato'] })
-
-const Header = ({ intro, setIntro, current }) => {
+const Header = ({ setIntro, current }) => {
 
   return (
     <div className={styles.header} style={{ position: "relative", zIndex: "11" }}>
@@ -13,7 +10,7 @@ const Header = ({ intro, setIntro, current }) => {
         <div className="container flex flex-wrap items-center justify-between mx-auto">
           <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
             <ul className="flex flex-col p-4 mt-4  rounded-lg bg-inherit md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-inherit ">
-              <li className={inter.className}>
+              <li style={{ fontFamily: "Lato" }}>
                 <a
                   href="/"
                   className="block py-2 pl-3 pr-4 flex font-semibold flex-col items-center text-blue-700 bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-white dark:bg-blue-600 "
@@ -27,7 +24,7 @@ const Header = ({ intro, setIntro, current }) => {
                   )}
                 </a>
               </li>
-              <li className={inter.className}>
+              <li style={{ fontFamily: "Lato" }}>
                 <a
                   href="/aboutUs"
                   className="block py-2 pl-3 pr-4 font-semibold text-[#475060] flex flex-col items-center rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
@@ -40,7 +37,7 @@ const Header = ({ intro, setIntro, current }) => {
                   )}
                 </a>
               </li>
-              <li className={inter.className}>
+              <li style={{ fontFamily: "Lato" }}>
                 <button className="peer px-5 py-2  text-[#475060] rounded font-semibold  hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">UPCOMING SESSIONS</button>
                 <div className="hidden peer-hover:flex hover:flex w-[280px] flex-col bg-inherit drop-shadow-lg absolute ml-[-130px]">
                   <div className="mt-[20px]"></div>

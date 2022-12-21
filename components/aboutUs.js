@@ -18,8 +18,8 @@ const AboutUs = () => {
 			<div style={{ maxWidth: "1374px" }}>
 				<div className=" pl-[10%] pr-[10%] flex">
 					<div className="w-2/3">
-						<p className="text-lg text-[#142630]" style={{ fontFamily: "" }}>Our Stroy</p>
-						<p className="text-3xl font-bold mt-[5px] text-[#142630]" style={{ fontFamily: "" }}>{header}</p>
+						<p className="text-lg text-[#142630]" style={{ fontFamily: "Lato" }}>Our Stroy</p>
+						<p className="text-3xl font-bold mt-[5px] text-[#142630]" style={{ fontFamily: "Lato" }}>{header}</p>
 						<p className="mt-[15px] text-[#475060]" style={{ fontFamily: "Jost" }}>
 							Social Media for Social Justice was conceived by Trish Brennan-Gac and is
 							being incubated through the Youth Creating Change (YCC)

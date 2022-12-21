@@ -7,7 +7,6 @@ import Social from "../components/social";
 import Speaker from "../components/speaker";
 import TopTitle from "../components/topTitle"
 import { getSession, getSessionAddtionalInfo, getSpeaker } from "../src/utils/contentful";
-// import WebFont from "webfontloader";
 
 const AvailableSessions = () => {
 	const [title1, setTitle1] = useState('');
@@ -39,15 +38,12 @@ const AvailableSessions = () => {
 			console.log(res.items);
 		})
 
-		// WebFont.load({
-		// 	google: {
-		// 		families: ['Lato', 'Jost']
-		// 	}
-		// });
 	}, [])
 
 	return (
 		<div className="flex bg-white flex-col items-center" >
+			<link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet' />
+			<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' />
 			<Header />
 			<TopTitle title={"Available Sessions"} />
 			<div className="relative z-[11] pl-[15%] pr-[15%] bg-white pt-[80px]" style={{ maxWidth: "1374px" }}>

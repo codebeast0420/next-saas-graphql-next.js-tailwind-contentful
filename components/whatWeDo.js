@@ -22,8 +22,8 @@ const WhatWeDo = () => {
 			<div style={{ maxWidth: "1374px" }}>
 				<div className="text-black pt-[200px] pl-[10%] pr-[10%] pb-[50px] flex" >
 					<div className="w-2/3">
-						<p className="text-lg text-[#142630]" style={{ fontFamily: "" }}>{preheader}</p>
-						<p className="text-3xl font-bold mt-[5px] text-[#142630]" style={{ fontFamily: "" }}>{header}</p>
+						<p className="text-lg text-[#142630]" style={{ fontFamily: "Lato" }}>{preheader}</p>
+						<p className="text-3xl font-bold mt-[5px] text-[#142630]" style={{ fontFamily: "Lato" }}>{header}</p>
 						<p className="mt-[15px] text-[#475060]" style={{ fontFamily: "Jost" }}>
 							Our approach is to create an interactive online training experience and
 							foster connections to various interest groups that have successfully employed
@@ -40,7 +40,7 @@ const WhatWeDo = () => {
 						</p>
 					</div>
 					<div className="w-1/3 ml-[5%]">
-						<p className="w-[205px] font-bold text-[#142630]">{topicHeader}</p>
+						<p className="w-[205px] font-bold text-[#142630]" style={{ fontFamily: "Lato" }}>{topicHeader}</p>
 						<div className="bg-white w-[90%] pl-[20px] pt-[15px] mt-[15px] rounded pb-[20px]">
 							{topics.map((topic, index) => (
 								<TopicItem key={index} topic={topic} />

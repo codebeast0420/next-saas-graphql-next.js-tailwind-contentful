@@ -16,12 +16,12 @@ const AvailableCard = ({ children, img, title, description, subtitles, indexPart
 						</div>
 						<div>
 							<div className="mt-[10px]">
-								<p className="text-4xl font-bold text-[#142630] capitalize" style={{ fontFamily: "" }}>{title}</p>
+								<p className="text-4xl font-bold text-[#142630] capitalize" style={{ fontFamily: "Lato" }}>{title}</p>
 								<p className="mt-[20px] text-[#475060]" style={{ fontFamily: "Jost" }}>{description}</p>
 							</div>
 							{subtitles && subtitles.map((subtitle, index) => (
 								<div key={index} className="mt-[20px] pl-[10px]" style={{ borderLeft: "1px solid #3185FC" }}>
-									<p className="font-bold text-lg text-[#142630]">{subtitle.header}</p>
+									<p className="font-bold text-lg text-[#142630]" style={{ fontFamily: "Jost" }}>{subtitle.header}</p>
 									<p className="text-[#475060]" style={{ fontFamily: "Jost" }}>{subtitle.body.json.content[0].content[0].value}</p>
 								</div>
 							))}

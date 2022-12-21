@@ -6,7 +6,7 @@ const FactQuoteCard = ({ imgSrc, content, name, school, className }) => {
 			<svg width="16" height="14" viewBox="0 0 32 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M29 14H24V10C24 7.79375 25.7938 6 28 6H28.5C29.3312 6 30 5.33125 30 4.5V1.5C30 0.66875 29.3312 0 28.5 0H28C22.475 0 18 4.475 18 10V25C18 26.6562 19.3438 28 21 28H29C30.6562 28 32 26.6562 32 25V17C32 15.3438 30.6562 14 29 14ZM11 14H6V10C6 7.79375 7.79375 6 10 6H10.5C11.3313 6 12 5.33125 12 4.5V1.5C12 0.66875 11.3313 0 10.5 0H10C4.475 0 0 4.475 0 10V25C0 26.6562 1.34375 28 3 28H11C12.6562 28 14 26.6562 14 25V17C14 15.3438 12.6562 14 11 14Z" fill="#3185FC" />
 			</svg>
-			<p className="mt-[10px] text-[#475060]" style={{ fontFamily: "" }}>{content}</p>
+			<p className="mt-[10px] text-[#475060]" style={{ fontFamily: "Lato" }}>{content}</p>
 			<div className="mt-[30px] flex justify-between">
 				<div className="flex justify-between">
 					<Image src={imgSrc} width={60} height={60} alt="man" className="rounded-[5rem]" />
