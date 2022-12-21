@@ -38,7 +38,36 @@ const IntroHome = () => {
 							</div>
 						</div>
 					</div>
-					<div className="w-1/4 h-[50px] bg-[#142630] mt-[-25px] mb-[200px]"></div>
+					<div className="w-1/3 bg-[#142630] mt-[-35px] mb-[200px] pl-[30px] pr-[30px] pt-[10px] pb-[10px] flex items-center justify-evenly">
+						<div className="flex flex-col text-white items-center">
+							<p style={{ fontFamily: 'Lato' }} className='text-lg font-bold'>44</p>
+							<p style={{ fontFamily: 'Jost' }} className='text-sm'>Days</p>
+						</div>
+						<svg className="ml-[10px]" width="5" height="20" viewBox="0 0 5 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect width="5" height="5" rx="2.5" fill="#F6FAFF" />
+							<rect y="15" width="5" height="5" rx="2.5" fill="#F6FAFF" />
+						</svg>
+						<div className="flex flex-col text-white items-center">
+							<p style={{ fontFamily: 'Lato' }} className='text-lg font-bold'>08</p>
+							<p style={{ fontFamily: 'Jost' }} className='text-sm'>Hours</p>
+						</div>
+						<svg className="ml-[10px]" width="5" height="20" viewBox="0 0 5 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect width="5" height="5" rx="2.5" fill="#F6FAFF" />
+							<rect y="15" width="5" height="5" rx="2.5" fill="#F6FAFF" />
+						</svg>
+						<div className="flex flex-col text-white items-center">
+							<p style={{ fontFamily: 'Lato' }} className='text-lg font-bold'>39</p>
+							<p style={{ fontFamily: 'Jost' }} className='text-sm'>Minutes</p>
+						</div>
+						<svg className="ml-[10px]" width="5" height="20" viewBox="0 0 5 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect width="5" height="5" rx="2.5" fill="#F6FAFF" />
+							<rect y="15" width="5" height="5" rx="2.5" fill="#F6FAFF" />
+						</svg>
+						<div className="flex flex-col text-white items-center">
+							<p style={{ fontFamily: 'Lato' }} className='text-lg font-bold'>58</p>
+							<p style={{ fontFamily: 'Jost' }} className='text-sm'>Seconds</p>
+						</div>
+					</div>
 				</div>
 			</div>
 			<AboutUs />

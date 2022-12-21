@@ -2,15 +2,36 @@ import { useEffect, useState } from "react";
 import { getAboutUs } from "../src/utils/contentful";
 import Image from "next/image";
 import CommonBtn from "./commonBtn";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const AboutUs = () => {
 	const [header, setHeader] = useState('');
 	const [body, setBody] = useState('');
+	const document = {
+		nodeType: 'document',
+		data: {},
+		content: [
+			{
+				nodeType: 'paragraph',
+				data: {},
+				content: [
+					{
+						nodeType: 'text',
+						value: 'Hello world!',
+						marks: [],
+						data: {},
+					},
+				],
+			},
+		],
+	};
 
 	useEffect(() => {
 		getAboutUs().then((res) => {
 			setHeader(res.header);
-			setBody(res.body.json.content[0].content[0].value);
+			// setBody(res.body.json.content[0].content[0].value);
+			setBody(res.body.json);
+			console.log(res);
 		})
 	})
 	return (
@@ -18,6 +39,7 @@ const AboutUs = () => {
 			<div style={{ maxWidth: "1374px" }}>
 				<div className=" pl-[10%] pr-[10%] flex">
 					<div className="w-2/3">
+						{/* {documentToReactComponents(document)} */}
 						<p className="text-lg text-[#142630]" style={{ fontFamily: "Lato" }}>Our Stroy</p>
 						<p className="text-3xl font-bold mt-[5px] text-[#142630]" style={{ fontFamily: "Lato" }}>{header}</p>
 						<p className="mt-[15px] text-[#475060]" style={{ fontFamily: "Jost" }}>
@@ -32,7 +54,11 @@ const AboutUs = () => {
 							Planning began in August 2021. The pilot will launch in January 2023 with a goal of 150 students.
 							Additional sessions are scheduled for February and March.
 						</p>
-						<CommonBtn text={"Learn More About Us"} />
+						<div className="mt-[50px]">
+							<a className={`pt-[8px] pb-[8px] pl-[15px] pr-[15px] rounded-sm bg-sky-400 text-white mt-[30px]`} href="/aboutUs" >
+								Learn More About Us
+							</a>
+						</div>
 					</div>
 					<div className="pl-[3%]">
 						<div className="flex items-start">

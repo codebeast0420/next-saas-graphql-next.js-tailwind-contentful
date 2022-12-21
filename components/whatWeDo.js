@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react"
 import { getWahtYouWillGain } from "../src/utils/contentful"
 import TopicItem from "./topicItem";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const WhatWeDo = () => {
 	const [preheader, setPreheader] = useState('');
 	const [header, setHeader] = useState('');
-	const [body, setBody] = useState('');
+	const [body, setBody] = useState([]);
 	const [topicHeader, setTopicHeader] = useState('');
 	const [topics, setTopics] = useState([]);
 	useEffect(() => {
 		getWahtYouWillGain().then((res) => {
 			setPreheader(res.preHeader);
 			setHeader(res.header);
-			setBody(res.body.json.content[0].content[0].value);
+			setBody(res.body.json);
 			setTopicHeader(res.topicsHeader);
 			setTopics(res.topics);
 		})
@@ -21,6 +22,7 @@ const WhatWeDo = () => {
 		<div className="bg-[#ffebcc] w-full relative flex flex-col items-center">
 			<div style={{ maxWidth: "1374px" }}>
 				<div className="text-black pt-[200px] pl-[10%] pr-[10%] pb-[50px] flex" >
+					{/* <h1>{documentToReactComponents(body)}</h1> */}
 					<div className="w-2/3">
 						<p className="text-lg text-[#142630]" style={{ fontFamily: "Lato" }}>{preheader}</p>
 						<p className="text-3xl font-bold mt-[5px] text-[#142630]" style={{ fontFamily: "Lato" }}>{header}</p>
