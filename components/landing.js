@@ -24,9 +24,9 @@ const Landing = () => {
 					<div className="hero ml-[10%] w-[27%] mt-[85px]">
 						<h1 className="text-[47px] font-semibold text-[#142630] capitalize" style={{ fontFamily: "Lato" }}>{heroHeader}</h1>
 						<p className="font-normal text-base text-[#475060]" style={{ fontFamily: "Jost" }}>{heroSub}</p>
-						<CommonBtn text={"Register Now"} onClick={() => setIntro(true)} />
+						<CommonBtn text={"Register Now"} onClick={() => setIntro(true)} className={"font-bold"}/>
 						<div>
-							<button className={`pt-[8px] pb-[8px] pl-[25px] pr-[22px] rounded-sm bg-sky-400 text-white mt-[10px]`}>
+							<button className={`pt-[8px] pb-[8px] pl-[25px] pr-[22px] rounded-sm bg-[#1CCADF] font-bold text-white mt-[10px]`}>
 								Support Us Here
 							</button>
 						</div>
