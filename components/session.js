@@ -74,8 +74,8 @@ const Session = () => {
 								<SessionCard
 
 									src={"/src/img/image 7.png"}
-									title={sessions[1].title}
-									text={documentToReactComponents(sessions[1].description.json)}
+									title={sessions[1] ? sessions[1].title : ""}
+									text={sessions[1] ? documentToReactComponents(sessions[1].description.json) : ""}
 									date={"January 22, 2023"}
 									time={"03.00PM - 05:00AM ET"}
 								/>
@@ -83,7 +83,7 @@ const Session = () => {
 							<SwiperSlide>
 								<SessionCard
 									src={"/src/img/image 10.png"}
-									title={sessions[0].title}
+									title={sessions[0] ? sessions[0].title : ""}
 									text={"This session is designed to acknowledge that students may be interested in different approaches to engaging on social media. Some may want to take on a public, outspoken role while others..."}
 									date={"February 26, 2023"}
 									time={"03.00PM - 05:00AM ET"}

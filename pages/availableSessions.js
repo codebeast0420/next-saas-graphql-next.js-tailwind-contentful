@@ -46,14 +46,14 @@ const AvailableSessions = () => {
 			<Header />
 			<TopTitle title={"Available Sessions"} />
 			<div className="relative z-[11] pl-[15%] pr-[15%] bg-white pt-[80px]" style={{ maxWidth: "1374px" }}>
-				<AvailableCard img={"/src/img/image 7-lg.png"} title={sessions[1].title} description={sessions[1].description.json.content[0].content[0].value} subtitles={subtitles1}>
+				<AvailableCard img={"/src/img/image 7-lg.png"} title={sessions[1] ? sessions[1].title : ""} description={sessions[1] ? sessions[1].description.json.content[0].content[0].value : ""} subtitles={subtitles1}>
 					<SessionSpeaker>
 						<Speaker img={"/src/img/speaker1.png"} name={speakers[0] ? speakers[0].name : ""} content={speakers[0] ? speakers[0].background : ""} />
 						<Speaker img={"/src/img/speaker2.png"} name={speakers[1] ? speakers[1].name : ""} content={speakers[1] ? speakers[1].background : ""} />
 					</SessionSpeaker>
 					<Social />
 				</AvailableCard>
-				<AvailableCard img={"/src/img/image 10-lg.png"} title={sessions[0].title} description={sessions[0].description.json.content[0].content[0].value} indexPart={indexPart2}>
+				<AvailableCard img={"/src/img/image 10-lg.png"} title={sessions[0] ? sessions[0].title : ""} description={sessions[0] ? sessions[0].description.json.content[0].content[0].value : ""} indexPart={indexPart2}>
 					<SessionSpeaker>
 						<Speaker img={"/src/img/speaker1.png"} name={speakers[0] ? speakers[0].name : ""} content={speakers[0] ? speakers[0].background : ""} />
 						<Speaker img={"/src/img/speaker2.png"} name={speakers[1] ? speakers[1].name : ""} content={speakers[1] ? speakers[1].background : ""} />
