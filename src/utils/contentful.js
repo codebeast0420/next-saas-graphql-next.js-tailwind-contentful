@@ -35,6 +35,9 @@ export async function getSession() {
 								background
 							}
 						}
+						banner {
+							url
+						}
 					}
 				}
       }
@@ -66,6 +69,21 @@ export async function getAboutUs() {
     `,
 	});
 	return data.aboutUs;
+}
+
+export async function getResources() {
+	const { data } = await apolloClient.query({
+		query: gql`
+      query GetResources {
+				resource(id:"6fnUwcyDd2Nf5aMOdOsscf") {
+					title
+					description
+					tags
+				}
+      }
+    `,
+	});
+	return data.resource;
 }
 
 export async function getLandingAboutUs() {
@@ -208,5 +226,5 @@ export default {
 	getFactAndQuote,
 	getSessionAddtionalInfo,
 	getSpeaker,
-
+	getResources
 };
