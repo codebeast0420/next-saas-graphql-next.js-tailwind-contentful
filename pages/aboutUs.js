@@ -10,6 +10,7 @@ const AboutUs = () => {
 	const [header, setHeader] = useState('');
 	const [studentLeadersHeader, setStudentLeadersHeader] = useState('');
 	const [subheading, setSubheading] = useState('');
+	const [leaders, setLeaders] = useState([]);
 	const [text1, setText1] = useState([]);
 	const [text2, setText2] = useState([]);
 	const [text3, setText3] = useState([]);
@@ -22,6 +23,8 @@ const AboutUs = () => {
 			setHeader(res.header);
 			setStudentLeadersHeader(res.studentLeadersHeader);
 			setSubheading(res.subheading);
+			setLeaders(res.studentLeadersCollection.items);
+			console.log(res.studentLeadersCollection.items);
 
 			let temp = res.body.json.content[0].content[0].value.split("\n");
 			for (let i = 0; i < temp.length; i++) {
@@ -89,6 +92,11 @@ const AboutUs = () => {
 					<div className="w-[50%]">
 						<p className="font-medium text-2xl text-[#142630]" style={{ fontFamily: "Lato" }}>{studentLeadersHeader}</p>
 						<div className="mt-[10px] flex justify-evenly flex-wrap ml-[-10px]" >
+							{leaders.map((leader, index) => (
+								<AboutUsCard key={index} leader={leader} />
+							))}
+							<AboutUsCard leader={leaders[0]} />
+							{/* <AboutUsCard />
 							<AboutUsCard />
 							<AboutUsCard />
 							<AboutUsCard />
@@ -96,9 +104,7 @@ const AboutUs = () => {
 							<AboutUsCard />
 							<AboutUsCard />
 							<AboutUsCard />
-							<AboutUsCard />
-							<AboutUsCard />
-							<AboutUsCard />
+							<AboutUsCard /> */}
 						</div>
 					</div>
 					<div className="w-[50%] pl-[25px] mb-[50px]" style={{ borderLeft: "1px solid #D9D9D9" }}>

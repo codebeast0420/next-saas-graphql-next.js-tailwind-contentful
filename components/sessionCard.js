@@ -25,9 +25,16 @@ const SessionCard = ({ src, title, text, date, time }) => {
 			</div>
 			<div className="mt-[10px]">
 				<p className="text-[#3185FC]" style={{ fontFamily: "Lato" }}>Speakers:</p>
-				<div className="flex text-[13px] justify-around text-black">
+				<div className="flex text-[13px] justify-between text-black">
 					{speakers.map((speaker, index) => (
-						<p style={{ fontFamily: "Lato" }} key={index}>{speaker.name}</p>
+						<>
+							{index !== 0 && (
+								<svg width="5" height="6" viewBox="0 0 5 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<rect y="0.5" width="5" height="5" rx="2.5" fill="#475060" />
+								</svg>
+							)}
+							<p style={{ fontFamily: "Lato" }} key={index}>{speaker.name}</p>
+						</>
 					))}
 				</div>
 			</div>

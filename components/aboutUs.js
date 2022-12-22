@@ -45,17 +45,17 @@ const AboutUs = () => {
 					</div>
 					<div className="pl-[3%]">
 						<div className="flex items-start">
-							<Image src="/src/img/image 21.png" cla width={75} height={75} alt="woman1" style={{ borderRadius: "5rem" }} className="mt-[24px]" />
+							<Image src={collageImagesCollection[0] ? collageImagesCollection[0].url : ""} width={75} height={75} alt="woman1" style={{ borderRadius: "5rem" }} className="mt-[24px]" />
 							<div className="flex flex-col mt-[24px]">
 								<Image
-									src="/src/img/Rectangle 92.png"
+									src={"/src/img/Rectangle 92.png"}
 									width={11}
 									height={11}
 									alt="small circul"
 									className="ml-[24px] mt-[10px]"
 								/>
 								<Image
-									src="/src/img/Rectangle 89.png"
+									src={"/src/img/Rectangle 89.png"}
 									className="mt-[43px] ml-[-4px]"
 									width={45}
 									height={45}
@@ -63,7 +63,7 @@ const AboutUs = () => {
 								/>
 							</div>
 							<Image
-								src="/src/img/image 22.png"
+								src={collageImagesCollection[3] ? collageImagesCollection[3].url : ""}
 								width={200}
 								height={200}
 								alt="women"
@@ -71,15 +71,14 @@ const AboutUs = () => {
 								className="ml-[5px]" />
 						</div>
 						<Image
-							src="/src/img/image 23.png"
-							className="mt-[-55px]"
+							src={collageImagesCollection[1] ? collageImagesCollection[1].url : ""}
 							width={110}
 							height={110}
 							alt="man1"
 							style={{ borderBottomLeftRadius: "4rem" }}
 						/>
 						<Image
-							src="/src/img/image 24.png"
+							src={collageImagesCollection[2] ? collageImagesCollection[2].url : ""}
 							width={110}
 							className="ml-[122px] mt-[-45px]"
 							height={110}
@@ -87,7 +86,7 @@ const AboutUs = () => {
 							style={{ borderBottomRightRadius: "4rem" }}
 						/>
 						<Image
-							src="/src/img/Rectangle 91.png"
+							src={"/src/img/Rectangle 91.png"}
 							width={50}
 							height={50}
 							className="ml-[86%] mt-[-100px]"

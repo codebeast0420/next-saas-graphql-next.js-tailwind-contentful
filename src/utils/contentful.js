@@ -54,6 +54,8 @@ export async function getAboutUs() {
 					studentLeadersCollection{
 						items {
 							name
+							position
+							description
 						}
 					}
 					body {
@@ -154,22 +156,48 @@ export async function getSessionAddtionalInfo() {
 	return data.sessionAdditionalInfoSectionCollection;
 }
 
+
 export async function getSpeaker() {
 	const { data } = await apolloClient.query({
 		query: gql`
-      query GetSpeaker {
+			query GetSpeaker {
 				speakerCollection{
 					items {
 						name
 						background
 					}
 				}
-      }
-    `,
+			}
+		`,
 	});
 	return data.speakerCollection;
 }
 
+export async function getFactCard() {
+	const { data } = await apolloClient.query({
+		query: gql`
+			query GetFactCard {
+				factCard(id:"4w1avLxcr039mFrbHIc7DN"){
+					body
+				}
+			}
+		`,
+	});
+	return data.factCard;
+}
+
+export async function getQuoteCard() {
+	const { data } = await apolloClient.query({
+		query: gql`
+			query GetQuoteCard {
+				quoteCard(id:"7EjzNolwAByOex6Z8Zliaj") {
+					body
+				}
+			}
+		`,
+	});
+	return data.quoteCard;
+}
 
 export default {
 	getHeroSection,
@@ -180,5 +208,5 @@ export default {
 	getFactAndQuote,
 	getSessionAddtionalInfo,
 	getSpeaker,
-	
+
 };
