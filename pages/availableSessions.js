@@ -9,8 +9,7 @@ import TopTitle from "../components/topTitle"
 import { getSession, getSessionAddtionalInfo, getSpeaker } from "../src/utils/contentful";
 
 const AvailableSessions = () => {
-	const [title1, setTitle1] = useState('');
-	const [description1, setDescription1] = useState('');
+	const [sessions, setSessions] = useState([]);
 	const [subtitles1, setSubtitles1] = useState([]);
 	const [speakers, setSpeakers] = useState([]);
 	const [description3, setDescription3] = useState('This session is designed to teach students how to discern trust from lies and how to identify malicious content that may be disguised. They will learn how to assess content to determine its validity as well as individuals or organizations to determine if they are a trustworthy source. In the breakout sessions, subject matter experts will share with students the organizations who are trusted in that content area and ways in which students can access their resources and support their work.')
@@ -23,8 +22,8 @@ const AvailableSessions = () => {
 		])
 	useEffect(() => {
 		getSession().then((res) => {
-			setTitle1(res.title);
-			setDescription1(res.description.json.content[0].content[0].value);
+			setSessions(res.items);
+			// setDescription1(res.items[1].description.json.content[0].content[0].value);
 		});
 
 		getSessionAddtionalInfo().then((res) => {
@@ -47,14 +46,14 @@ const AvailableSessions = () => {
 			<Header />
 			<TopTitle title={"Available Sessions"} />
 			<div className="relative z-[11] pl-[15%] pr-[15%] bg-white pt-[80px]" style={{ maxWidth: "1374px" }}>
-				<AvailableCard img={"/src/img/image 7-lg.png"} title={title1} description={description1} subtitles={subtitles1}>
+				<AvailableCard img={"/src/img/image 7-lg.png"} title={sessions[1].title} description={sessions[1].description.json.content[0].content[0].value} subtitles={subtitles1}>
 					<SessionSpeaker>
 						<Speaker img={"/src/img/speaker1.png"} name={speakers[0] ? speakers[0].name : ""} content={speakers[0] ? speakers[0].background : ""} />
 						<Speaker img={"/src/img/speaker2.png"} name={speakers[1] ? speakers[1].name : ""} content={speakers[1] ? speakers[1].background : ""} />
 					</SessionSpeaker>
 					<Social />
 				</AvailableCard>
-				<AvailableCard img={"/src/img/image 10-lg.png"} title={title1} description={description1} indexPart={indexPart2}>
+				<AvailableCard img={"/src/img/image 10-lg.png"} title={sessions[0].title} description={sessions[0].description.json.content[0].content[0].value} indexPart={indexPart2}>
 					<SessionSpeaker>
 						<Speaker img={"/src/img/speaker1.png"} name={speakers[0] ? speakers[0].name : ""} content={speakers[0] ? speakers[0].background : ""} />
 						<Speaker img={"/src/img/speaker2.png"} name={speakers[1] ? speakers[1].name : ""} content={speakers[1] ? speakers[1].background : ""} />

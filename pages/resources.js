@@ -21,7 +21,7 @@ const Resources = () => {
 					<div className="flex ">
 						<CommonBtn text={"Video"} />
 						<CommonBtn text={"Article"} bgColor={"bg-[#e1e4ea]"} className={"ml-[10px]"} />
-						<CommonBtn text={"Session1"} bgColor={"bg-[#e1e4ea]"} className={"ml-[10px]"} />
+						<CommonBtn text={"Session1"} bgColor={"bg-[#e1e4ea]"} className={"ml-[10px]"} /> 
 						<CommonBtn text={"Session2"} bgColor={"bg-[#e1e4ea]"} className={"ml-[10px]"} />
 						<CommonBtn text={"Session3"} bgColor={"bg-[#e1e4ea]"} className={"ml-[10px]"} />
 						<CommonBtn text={"Session4"} bgColor={"bg-[#e1e4ea]"} className={"ml-[10px]"} />

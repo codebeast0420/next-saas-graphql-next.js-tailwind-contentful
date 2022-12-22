@@ -13,13 +13,47 @@ const IntroHome = () => {
 
 	const [sessionTitle, setSessionTitle] = useState('');
 	const [sessionData, setSessionData] = useState('');
+	const [days, setDays] = useState(44);
+	const [hours, setHours] = useState(8);
+	const [mins, setMins] = useState(39);
+	const [secs, setSecs] = useState(58);
+
+	const dateTime = () => {
+		if (secs === 0) {
+			setSecs(59);
+		}
+		else {
+			setSecs(secs - 1);
+		}
+		if (secs === 1) {
+			setMins(mins - 1);
+			if (mins === 0) {
+				setHours(hours - 1);
+				setMins(59);
+
+				if (hours === 0) {
+					setDays(days - 1);
+					setHours(23);
+				}
+			}
+		}
+	}
 
 	useEffect(() => {
 		getSession().then((res) => {
-			setSessionTitle(res.title);
-			setSessionData(res.description.json.content[0].content[0].value);
-		})
+			setSessionTitle(res.items[1].title);
+			setSessionData(res.items[1].description.json.content[0].content[0].value);
+		});
 	}, [])
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			dateTime();
+		}, 1000);
+
+		return () => clearInterval(interval);
+	}, [secs])
+
 	return (
 		<div >
 			<div className="flex flex-col items-center" style={{ background: "linear-gradient(242.14deg, #EAF8FA 0%, #EFFCF7 100%)" }}>
@@ -40,7 +74,7 @@ const IntroHome = () => {
 					</div>
 					<div className="w-1/3 bg-[#142630] mt-[-35px] mb-[200px] pl-[30px] pr-[30px] pt-[10px] pb-[10px] flex items-center justify-evenly">
 						<div className="flex flex-col text-white items-center">
-							<p style={{ fontFamily: 'Lato' }} className='text-lg font-bold'>44</p>
+							<p style={{ fontFamily: 'Lato' }} className='text-lg font-bold'>{days}</p>
 							<p style={{ fontFamily: 'Jost' }} className='text-sm'>Days</p>
 						</div>
 						<svg className="ml-[10px]" width="5" height="20" viewBox="0 0 5 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +82,7 @@ const IntroHome = () => {
 							<rect y="15" width="5" height="5" rx="2.5" fill="#F6FAFF" />
 						</svg>
 						<div className="flex flex-col text-white items-center">
-							<p style={{ fontFamily: 'Lato' }} className='text-lg font-bold'>08</p>
+							<p style={{ fontFamily: 'Lato' }} className='text-lg font-bold'>{hours < 10 ? `0${hours}` : hours}</p>
 							<p style={{ fontFamily: 'Jost' }} className='text-sm'>Hours</p>
 						</div>
 						<svg className="ml-[10px]" width="5" height="20" viewBox="0 0 5 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +90,7 @@ const IntroHome = () => {
 							<rect y="15" width="5" height="5" rx="2.5" fill="#F6FAFF" />
 						</svg>
 						<div className="flex flex-col text-white items-center">
-							<p style={{ fontFamily: 'Lato' }} className='text-lg font-bold'>39</p>
+							<p style={{ fontFamily: 'Lato' }} className='text-lg font-bold'>{mins < 10 ? `0${mins}` : mins}</p>
 							<p style={{ fontFamily: 'Jost' }} className='text-sm'>Minutes</p>
 						</div>
 						<svg className="ml-[10px]" width="5" height="20" viewBox="0 0 5 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,7 +98,7 @@ const IntroHome = () => {
 							<rect y="15" width="5" height="5" rx="2.5" fill="#F6FAFF" />
 						</svg>
 						<div className="flex flex-col text-white items-center">
-							<p style={{ fontFamily: 'Lato' }} className='text-lg font-bold'>58</p>
+							<p style={{ fontFamily: 'Lato' }} className='text-lg font-bold'>{secs < 10 ? `0${secs}` : secs}</p>
 							<p style={{ fontFamily: 'Jost' }} className='text-sm'>Seconds</p>
 						</div>
 					</div>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { getSessionList } from "../src/utils/contentful";
+import { getSessionList, getSession } from "../src/utils/contentful";
 import CommonBtn from "./commonBtn";
 import SessionCard from "./sessionCard";
 import SlideBtn from "./slideBtn";
@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation'
 import SwiperCore, { Navigation } from "swiper/core";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 
 SwiperCore.use([Navigation]);
@@ -14,13 +15,20 @@ SwiperCore.use([Navigation]);
 const Session = () => {
 	const [preHeader, setPreHeader] = useState('');
 	const [header, setHeader] = useState('');
-	const navigationNextRef = useRef(null);
-	const navigationPrevRef = useRef(null);
+	const [sessions, setSessions] = useState([{
+
+	}]);
+	
 
 	useEffect(() => {
 		getSessionList().then((res) => {
 			setPreHeader(res.preHeader);
 			setHeader(res.header);
+		})
+
+		getSession().then((res) => {
+			setSessions(res.items);
+			console.log("res", res);
 		})
 	})
 	return (
@@ -50,11 +58,24 @@ const Session = () => {
 							}}
 							onSwiper={(swiper) => console.log(swiper)}
 						>
+							{/* {sessions.map((session, index) => (
+								<SwiperSlide key={index}>
+									<SessionCard
+
+										src={"/src/img/image 7.png"}
+										title={session.title}
+										text={documentToReactComponents(session.description.json)}
+										date={"January 22, 2023"}
+										time={"03.00PM - 05:00AM ET"}
+									/>
+								</SwiperSlide>
+							))} */}
 							<SwiperSlide>
 								<SessionCard
+
 									src={"/src/img/image 7.png"}
-									title={"Introduction To The Problems And Power Of Social Media"}
-									text={"This Session is An Overview Session To Ensure All Students Understand How Social Media Platforms Are Designed And Reveraged For Good Or Bad Purpose."}
+									title={sessions[1].title}
+									text={documentToReactComponents(sessions[1].description.json)}
 									date={"January 22, 2023"}
 									time={"03.00PM - 05:00AM ET"}
 								/>
@@ -62,7 +83,7 @@ const Session = () => {
 							<SwiperSlide>
 								<SessionCard
 									src={"/src/img/image 10.png"}
-									title={"Creating Your Social Media Presence and Profile"}
+									title={sessions[0].title}
 									text={"This session is designed to acknowledge that students may be interested in different approaches to engaging on social media. Some may want to take on a public, outspoken role while others..."}
 									date={"February 26, 2023"}
 									time={"03.00PM - 05:00AM ET"}

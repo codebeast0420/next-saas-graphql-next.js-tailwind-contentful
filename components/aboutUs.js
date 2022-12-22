@@ -1,37 +1,32 @@
 import { useEffect, useState } from "react";
-import { getAboutUs } from "../src/utils/contentful";
+import { getLandingAboutUs } from "../src/utils/contentful";
 import Image from "next/image";
-import CommonBtn from "./commonBtn";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 
 const AboutUs = () => {
 	const [header, setHeader] = useState('');
 	const [body, setBody] = useState('');
-	const document = {
-		nodeType: 'document',
-		data: {},
-		content: [
-			{
-				nodeType: 'paragraph',
-				data: {},
-				content: [
-					{
-						nodeType: 'text',
-						value: 'Hello world!',
-						marks: [],
-						data: {},
-					},
-				],
-			},
-		],
+	const [preHeader, setPreHeader] = useState('');
+	const [ctaText, setCtaText] = useState('');
+	const [collageImagesCollection, setCollageImagesCollection] = useState([]);
+
+	const MarginTop = ({ children }) => <p className="mt-[20px]">{children}</p>;
+
+	const options = {
+		renderNode: {
+			[BLOCKS.PARAGRAPH]: (node, children) => <MarginTop>{children}</MarginTop>,
+		}
 	};
 
 	useEffect(() => {
-		getAboutUs().then((res) => {
+		getLandingAboutUs().then((res) => {
 			setHeader(res.header);
 			// setBody(res.body.json.content[0].content[0].value);
-			setBody(res.body.json);
-			console.log(res);
+			setBody(res.body);
+			setCtaText(res.ctaText);
+			setPreHeader(res.preHeader);
+			setCollageImagesCollection(res.collageImagesCollection.items);
 		})
 	})
 	return (
@@ -39,24 +34,12 @@ const AboutUs = () => {
 			<div style={{ maxWidth: "1374px" }}>
 				<div className=" pl-[10%] pr-[10%] flex">
 					<div className="w-2/3">
-						{/* {documentToReactComponents(document)} */}
-						<p className="text-lg text-[#142630]" style={{ fontFamily: "Lato" }}>Our Stroy</p>
+						<p className="text-lg text-[#142630]" style={{ fontFamily: "Lato" }}>{preHeader}</p>
 						<p className="text-3xl font-bold mt-[5px] text-[#142630]" style={{ fontFamily: "Lato" }}>{header}</p>
-						<p className="mt-[15px] text-[#475060]" style={{ fontFamily: "Jost" }}>
-							Social Media for Social Justice was conceived by Trish Brennan-Gac and is
-							being incubated through the Youth Creating Change (YCC)
-							Fellowship of Communities United Against Hate (CUAH) founded by Paul Tiao.
-							The program is being co-created with high school students in Maryland, California, Virginia,
-							Texas, and the District of Columbia. The curriculum is being developed in consultation with
-							experts in disinformation, online organizing, and curriculum development and facilitation.
-						</p>
-						<p className="mt-[15px] text-[#475060]" style={{ fontFamily: "Jost" }}>
-							Planning began in August 2021. The pilot will launch in January 2023 with a goal of 150 students.
-							Additional sessions are scheduled for February and March.
-						</p>
+						<div className="mt-[15px] text-[#475060]" style={{ fontFamily: "Jost" }}>{documentToReactComponents(body.json, options)}</div>
 						<div className="mt-[50px]">
 							<a className={`pt-[8px] pb-[8px] pl-[15px] pr-[15px] rounded-sm bg-sky-400 text-white mt-[30px]`} href="/aboutUs" >
-								Learn More About Us
+								{ctaText}
 							</a>
 						</div>
 					</div>
