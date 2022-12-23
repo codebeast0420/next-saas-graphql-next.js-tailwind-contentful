@@ -9,14 +9,15 @@ import SupportBar from "./supportbar";
 import FactAndQuote from "./factAndQuote";
 import Bottom from "./bottom";
 
-const IntroHome = () => {
+const IntroHome = (props) => {
 
 	const [sessionTitle, setSessionTitle] = useState('');
 	const [sessionData, setSessionData] = useState('');
-	const [days, setDays] = useState(44);
-	const [hours, setHours] = useState(8);
-	const [mins, setMins] = useState(39);
-	const [secs, setSecs] = useState(58);
+	const [days, setDays] = useState(props.days);
+	const [hours, setHours] = useState(props.hours);
+	const [mins, setMins] = useState(props.mins);
+	const [secs, setSecs] = useState(props.seconds);
+
 
 	const dateTime = () => {
 		if (secs === 0) {
@@ -46,13 +47,13 @@ const IntroHome = () => {
 		});
 	}, [])
 
-	// useEffect(() => {
-	// 	const interval = setInterval(() => {
-	// 		dateTime();
-	// 	}, 1000);
+	useEffect(() => {
+		const interval = setInterval(() => {
+			dateTime();
+		}, 1000);
 
-	// 	return () => clearInterval(interval);
-	// }, [secs])
+		return () => clearInterval(interval);
+	}, [secs])
 
 	return (
 		<div >

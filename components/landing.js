@@ -11,12 +11,20 @@ const Landing = () => {
 	const [registerBtn, setRegisterBtn] = useState('');
 	const [intro, setIntro] = useState(false)
 	const [imageUrl, setImageUrl] = useState('');
+
+	const until = new Date("January 22, 2023");
+	const rest = until.getTime() - Date.now();
+	const days = parseInt(rest/86400000);
+	const hours = parseInt((rest - (days * 86400000))/3600000);
+	const mins = parseInt((rest%3600000)/60000);
+	const seconds = parseInt((rest%60000)/1000);
 	useEffect(() => {
 		getHeroSection().then((res) => {
 			setHeroHeader(res.header);
 			setHeroSub(res.subtext);
 			setRegisterBtn(res.ctaButtonText);
 			setImageUrl(res.image.url);
+			console.log(days, hours, mins, seconds);
 		});
 	}, []);
 
@@ -43,7 +51,7 @@ const Landing = () => {
 					</div>
 				</div>
 			</div>
-			<IntroHome />
+			<IntroHome days={days} hours={hours} mins={mins} seconds={seconds}/>
 		</div>
 
 	);
