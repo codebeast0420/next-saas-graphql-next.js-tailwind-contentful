@@ -27,7 +27,7 @@ const Landing = () => {
 				<div className="flex" style={{ maxWidth: "1374px" }}>
 					<div className="hero ml-[10%] w-[27%] mt-[85px]">
 						<h1 className="text-[47px] font-semibold text-[#142630] capitalize" style={{ fontFamily: "Lato" }}>{heroHeader}</h1>
-						<p className="font-normal text-base text-[#475060]" style={{ fontFamily: "Jost" }}>{heroSub}</p>
+						<p className="font-normal text-base text-[#475060]">{heroSub}</p>
 						<CommonBtn text={registerBtn} onClick={() => setIntro(true)} className={"font-bold"}/>
 						<div>
 							<button className={`pt-[8px] pb-[8px] pl-[25px] pr-[22px] rounded-sm bg-[#1CCADF] font-bold text-white mt-[10px]`}>

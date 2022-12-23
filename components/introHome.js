@@ -46,13 +46,13 @@ const IntroHome = () => {
 		});
 	}, [])
 
-	useEffect(() => {
-		const interval = setInterval(() => {
-			dateTime();
-		}, 1000);
+	// useEffect(() => {
+	// 	const interval = setInterval(() => {
+	// 		dateTime();
+	// 	}, 1000);
 
-		return () => clearInterval(interval);
-	}, [secs])
+	// 	return () => clearInterval(interval);
+	// }, [secs])
 
 	return (
 		<div >
