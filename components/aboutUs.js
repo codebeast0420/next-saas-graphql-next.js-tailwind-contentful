@@ -38,7 +38,7 @@ const AboutUs = () => {
 						<p className="text-3xl font-bold mt-[5px] text-[#142630]" style={{ fontFamily: "Lato" }}>{header}</p>
 						<div className="mt-[15px] text-[#475060]" style={{ fontFamily: "Jost" }}>{documentToReactComponents(body.json, options)}</div>
 						<div className="mt-[50px]">
-							<a className={`pt-[8px] pb-[8px] pl-[15px] pr-[15px] rounded-sm bg-sky-400 text-white mt-[30px]`} href="/aboutUs" >
+							<a style={{boxShadow: "0px 10px 25px rgba(28, 202, 223, 0.3)"}} className={`pt-[8px] pb-[8px] pl-[15px] pr-[15px] rounded-sm bg-sky-400 text-white mt-[30px]`} href="/aboutUs" >
 								{ctaText}
 							</a>
 						</div>
