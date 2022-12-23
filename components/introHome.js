@@ -16,7 +16,7 @@ const IntroHome = (props) => {
 	const [days, setDays] = useState(props.days);
 	const [hours, setHours] = useState(props.hours);
 	const [mins, setMins] = useState(props.mins);
-	const [secs, setSecs] = useState(props.seconds);
+	const [secs, setSecs] = useState(40);
 
 
 	const dateTime = () => {
