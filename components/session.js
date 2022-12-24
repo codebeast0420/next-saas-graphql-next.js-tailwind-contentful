@@ -15,9 +15,23 @@ SwiperCore.use([Navigation]);
 const Session = () => {
 	const [preHeader, setPreHeader] = useState('');
 	const [header, setHeader] = useState('');
-	const [sessions, setSessions] = useState([{
+	const [sessions, setSessions] = useState([{}]);
+	const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
 
-	}]);
+	const convertDate = (start) => {
+		const date = new Date(start);
+		const dateString = `${monthNames[date.getMonth(date)]} ${date.getDate(date)}, ${date.getFullYear(date)}`
+		return dateString;
+	}
+
+	const convertTime = (start) => {
+		const date = new Date(start);
+		const time = date.getHours(date) + 11;
+		const dateString = `${date.getHours(date) + 11} : ${date.getUTCMinutes(date)} : ${date.getSeconds(date)}`
+		return dateString;
+	}
 	
 
 	useEffect(() => {
@@ -54,25 +68,25 @@ const Session = () => {
 							onSwiper={(swiper) => console.log(swiper)}
 							className="w-[1000px]"
 						>
-							{/* {sessions.map((session, index) => (
+							{sessions.map((session, index) => (
 								<SwiperSlide key={index}>
 									<SessionCard
-
-										src={"/src/img/image 7.png"}
-										title={session.title}
-										text={documentToReactComponents(session.description.json)}
-										date={"January 22, 2023"}
+										speakers={session.speakersCollection ?  session.speakersCollection.items : ""}
+										src={session.banner ? session.banner.url : ""}
+										title={session ? session.title : ""}
+										text={session.description ? documentToReactComponents(session.description.json) : ""}
+										date={session.startTime ? convertDate(sessions[1].startTime) : ""}
 										time={"03.00PM - 05:00AM ET"}
 									/>
 								</SwiperSlide>
-							))} */}
-							<SwiperSlide>
+							))}
+							{/* <SwiperSlide>
 								<SessionCard
 
 									src={sessions[1] ? sessions[1].banner.url : ""}
 									title={sessions[1] ? sessions[1].title : ""}
 									text={sessions[1] ? documentToReactComponents(sessions[1].description.json) : ""}
-									date={"January 22, 2023"}
+									date={sessions[1] ? convertDate(sessions[1].startTime) : ""}
 									time={"03.00PM - 05:00AM ET"}
 								/>
 							</SwiperSlide>
@@ -84,7 +98,7 @@ const Session = () => {
 									date={"February 26, 2023"}
 									time={"03.00PM - 05:00AM ET"}
 								/>
-							</SwiperSlide>
+							</SwiperSlide> */}
 							{/* <SwiperSlide>
 								<SessionCard
 									src={"/src/img/test.png"}

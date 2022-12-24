@@ -212,6 +212,9 @@ export async function getQuoteCard() {
 			query GetQuoteCard {
 				quoteCard(id:"7EjzNolwAByOex6Z8Zliaj") {
 					body
+					creator {
+						name
+					}
 				}
 			}
 		`,

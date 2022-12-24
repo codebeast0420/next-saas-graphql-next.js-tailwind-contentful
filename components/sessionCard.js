@@ -3,18 +3,11 @@ import Date from "./date";
 import { getSpeaker } from "../src/utils/contentful";
 import { useEffect, useState } from "react";
 
-const SessionCard = ({ src, title, text, date, time }) => {
-	const [speakers, setSpeakers] = useState([]);
+const SessionCard = ({ src, title, text, date, time, speakers }) => {
 
-	useEffect(() => {
-		getSpeaker().then((res) => {
-			setSpeakers(res.items)
-			console.log("speaker", res);
-		})
-	}, [])
 
 	return (
-		<div className="bg-[#F7F7F7] p-[10px] w-full rounded-[10px]" style={{ boxShadow: "0px 10px 40px rgba(7, 24, 50, 0.07)" }}>
+		<div className="bg-[#F7F7F7] p-[10px] w-full rounded-[10px] h-full flex flex-col justify-between" style={{ boxShadow: "0px 10px 40px rgba(7, 24, 50, 0.07)" }}>
 			<div style={{ borderBottom: "1px solid rgb(71, 80, 96, 0.15)" }} className={"pb-[10px]"}>
 				<div className="flex flex-col items-center">
 					<Image src={src} width={350} height={193} alt="session card" />
