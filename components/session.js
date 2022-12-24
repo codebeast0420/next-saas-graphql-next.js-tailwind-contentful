@@ -71,7 +71,7 @@ const Session = () => {
 							{sessions.map((session, index) => (
 								<SwiperSlide key={index}>
 									<SessionCard
-										speakers={session.speakersCollection ?  session.speakersCollection.items : ""}
+										speakers={session.speakersCollection ?  session.speakersCollection.items : [""]}
 										src={session.banner ? session.banner.url : ""}
 										title={session ? session.title : ""}
 										text={session.description ? documentToReactComponents(session.description.json) : ""}
