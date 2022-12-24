@@ -25,7 +25,7 @@ const SessionCard = ({ src, title, text, date, time }) => {
 			</div>
 			<div className="mt-[10px]">
 				<p className="text-[#3185FC]" style={{ fontFamily: "Lato" }}>Speakers:</p>
-				<div className="flex text-[13px] justify-between text-black">
+				<div className="flex text-[13px] justify-around text-black">
 					{speakers.map((speaker, index) => (
 						<>
 							{index !== 0 && (

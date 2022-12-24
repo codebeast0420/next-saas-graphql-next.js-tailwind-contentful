@@ -40,16 +40,11 @@ const Session = () => {
 							<p className="text-lg text-[#475060]" style={{ fontFamily: "Lato" }}>{preHeader}</p>
 							<p className="text-3xl font-bold mt-[5px] text-[#142630] " style={{ fontFamily: "Lato" }}>{header}</p>
 						</div>
-						<div className="text-black flex  ml-[20%]">
-							<CommonBtn text={"Upcoming Sessions"} pdSmall={true} />
-							<CommonBtn text={"Completed Sessions"} bgColor={"bg-slate-400"} pdSmall={true} className="ml-[10px]" />
-							<CommonBtn text={"Canceled Sessions"} bgColor={"bg-slate-400"} pdSmall={true} className="ml-[10px]" />
-						</div>
 					</div>
 					<div className="mt-[20px] flex">
 						<Swiper
 							spaceBetween={50}
-							slidesPerView={2.5}
+							slidesPerView={2}
 							modules={[Navigation]}
 							onSlideChange={(swiper) => console.log(swiper)}
 							navigation={{
@@ -57,6 +52,7 @@ const Session = () => {
 								prevEl: '.prev-button',
 							}}
 							onSwiper={(swiper) => console.log(swiper)}
+							className="w-[1000px]"
 						>
 							{/* {sessions.map((session, index) => (
 								<SwiperSlide key={index}>
@@ -73,7 +69,7 @@ const Session = () => {
 							<SwiperSlide>
 								<SessionCard
 
-									src={"/src/img/image 7.png"}
+									src={sessions[1] ? sessions[1].banner.url : ""}
 									title={sessions[1] ? sessions[1].title : ""}
 									text={sessions[1] ? documentToReactComponents(sessions[1].description.json) : ""}
 									date={"January 22, 2023"}
@@ -82,14 +78,14 @@ const Session = () => {
 							</SwiperSlide>
 							<SwiperSlide>
 								<SessionCard
-									src={"/src/img/image 10.png"}
+									src={sessions[0].banner ? sessions[0].banner.url : ""}
 									title={sessions[0] ? sessions[0].title : ""}
 									text={"This session is designed to acknowledge that students may be interested in different approaches to engaging on social media. Some may want to take on a public, outspoken role while others..."}
 									date={"February 26, 2023"}
 									time={"03.00PM - 05:00AM ET"}
 								/>
 							</SwiperSlide>
-							<SwiperSlide>
+							{/* <SwiperSlide>
 								<SessionCard
 									src={"/src/img/test.png"}
 									title={"Who Can You Trust?"}
@@ -97,7 +93,7 @@ const Session = () => {
 									date={"March 5, 2023"}
 									time={"03.00PM - 05:00AM ET"}
 								/>
-							</SwiperSlide>
+							</SwiperSlide> */}
 						</Swiper>
 					</div>
 					{/* <SlideBtn /> */}

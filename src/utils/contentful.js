@@ -38,6 +38,8 @@ export async function getSession() {
 						banner {
 							url
 						}
+						startTime
+						endTime
 					}
 				}
       }

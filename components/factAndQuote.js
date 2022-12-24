@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getFactAndQuote, getFactCard, getQuoteCard } from "../src/utils/contentful"
+import { getFactAndQuote, getFactCard, getQuoteCard, getSpeaker } from "../src/utils/contentful"
 import FactQuoteCard from "./factQuoteCard";
 import SlideBtn from "./slideBtn";
 
@@ -8,6 +8,7 @@ const FactAndQuote = () => {
 	const [description, setDescription] = useState('');
 	const [factCard, setFactCard] = useState('');
 	const [quoteCard, setQuoteCard] = useState('');
+	const [speakers, setSpeakers] = useState([]);
 
 	useEffect(() => {
 		getFactAndQuote().then((res) => {
@@ -23,6 +24,10 @@ const FactAndQuote = () => {
 		getQuoteCard().then((res) => {
 			setQuoteCard(res.body)
 		})
+
+		getSpeaker().then((res) => {
+			setSpeakers(res.items);
+		})
 	}, [])
 	return (
 		<div className="w-full flex flex-col items-center" style={{ backgroundColor: "rgba(28, 202, 223, 0.08)" }}>
@@ -31,8 +36,11 @@ const FactAndQuote = () => {
 				<p className="text-3xl font-bold text-[#142630]" style={{ fontFamily: "Lato" }}>{header}</p>
 				<p className="text-lg mt-[5px] text-[#475060]" style={{ fontFamily: "Jost" }}>{description}</p>
 					<div className="mt-[30px] flex">
-						<FactQuoteCard imgSrc={"/src/img/image 12.png"} name={"Nicolas Smith"} content={factCard} school={"12th Science Student at ABC High School."} />
-						<FactQuoteCard imgSrc={"/src/img/image 13.png"} className={"ml-[10px]"} name={"Michal Jordan"} content={quoteCard} school={"12th Science Student at ABC High School."} />
+						{speakers.map((speaker, index) => (
+							<FactQuoteCard imgSrc={"https://images.ctfassets.net/ddgzaaogwqkq/2vYjDB1FJfwY7XHbFenBU1/065cef208da354a8bbb517699921edcd/Placeholder_view_vector.svg.png"} className={index != 0 ? "ml-[10px]" : ""} name={speaker.name} content={factCard} school={speaker.background} />
+						))}
+						{/* <FactQuoteCard imgSrc={"/src/img/image 12.png"} name={"Nicolas Smith"} content={factCard} school={"12th Science Student at ABC High School."} />
+						<FactQuoteCard imgSrc={"/src/img/image 13.png"} className={"ml-[10px]"} name={"Michal Jordan"} content={quoteCard} school={"12th Science Student at ABC High School."} /> */}
 					</div>
 					<SlideBtn />
 				</div>
