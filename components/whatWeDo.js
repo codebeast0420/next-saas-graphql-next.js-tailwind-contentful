@@ -14,10 +14,8 @@ const WhatWeDo = () => {
 			setPreheader(res.preHeader);
 			setHeader(res.header);
 			setBody(res.body.json);
-			const a = res.body;
 			setTopicHeader(res.topicsHeader);
 			setTopics(res.topics);
-			console.log(documentToReactComponents(a.content));
 		})
 	})
 	return (

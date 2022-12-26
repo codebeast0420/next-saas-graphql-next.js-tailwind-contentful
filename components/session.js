@@ -42,12 +42,11 @@ const Session = () => {
 
 		getSession().then((res) => {
 			setSessions(res.items);
-			console.log("res", res);
 		})
 	})
 	return (
-		<div className="w-full flex flex-col items-center">
-			<div style={{ maxWidth: "1374px" }}>
+		<div className="flex flex-col items-center">
+			<div className="w-full" style={{ maxWidth: "1374px" }}>
 				<div className="pt-[100px] pl-[10%] pr-[10%] pb-[100px] w-full">
 					<div className="flex">
 						<div>
@@ -58,7 +57,7 @@ const Session = () => {
 					<div className="mt-[20px] flex">
 						<Swiper
 							spaceBetween={50}
-							slidesPerView={2}
+							slidesPerView={2.5}
 							modules={[Navigation]}
 							onSlideChange={(swiper) => console.log(swiper)}
 							navigation={{

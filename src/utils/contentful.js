@@ -214,6 +214,10 @@ export async function getQuoteCard() {
 					body
 					creator {
 						name
+						background
+						image {
+							url
+						}
 					}
 				}
 			}
