@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { getSessionList, getSession } from "../src/utils/contentful";
-import CommonBtn from "./commonBtn";
 import SessionCard from "./sessionCard";
-import SlideBtn from "./slideBtn";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation'
@@ -74,7 +72,7 @@ const Session = () => {
 										src={session.banner ? session.banner.url : ""}
 										title={session ? session.title : ""}
 										text={session.description ? documentToReactComponents(session.description.json) : ""}
-										date={session.startTime ? convertDate(sessions[1].startTime) : ""}
+										date={session.startTime ? convertDate(sessions[index].startTime) : ""}
 										time={"03.00PM - 05:00AM ET"}
 									/>
 								</SwiperSlide>
