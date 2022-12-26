@@ -23,21 +23,38 @@ const AvailableSessions = () => {
 	useEffect(() => {
 		getSession().then((res) => {
 			setSessions(res.items);
-			// setDescription1(res.items[1].description.json.content[0].content[0].value);
 		});
 
 		getSessionAddtionalInfo().then((res) => {
 			setSubtitles1(res.items);
-			// setSubtitles1([...subtitles1, { title: res.items[1].header, content: res.items[1].body.json.content[0].content[0].value }])
-			// console.log(res.items, res.items.length)
 		});
 
 		getSpeaker().then((res) => {
 			setSpeakers(res.items);
-			console.log(res.items);
 		})
 
-	}, [])
+		if (localStorage.getItem("SessionId")) {
+			let id = localStorage.getItem("SessionId");
+			if (document.getElementById("session-" + id)) {
+				let elementPos = document.getElementById("session-" + id).offsetTop;
+				window.scrollTo({
+					top: elementPos + 300,
+					behavior: "smooth"
+				})
+			}
+		}
+	})
+
+	const showSpeaker = (item, key) => {
+		let imageUrl = '';
+		for (let i = 0; i < speakers.length; i++) {
+			if (item.name === speakers[i].name)
+				imageUrl = speakers[i].image.url;
+		}
+		return (
+			<Speaker key={key} img={imageUrl} name={item.name} content={item.background} />
+		)
+	}
 
 	return (
 		<div className="flex bg-white flex-col items-center" >
@@ -46,28 +63,16 @@ const AvailableSessions = () => {
 			<Header />
 			<TopTitle title={"Available Sessions"} />
 			<div className="relative z-[11] pl-[15%] pr-[15%] bg-white pt-[80px]" style={{ maxWidth: "1374px" }}>
-				<AvailableCard img={sessions[1] ? sessions[1].banner.url : ""} title={sessions[1] ? sessions[1].title : ""} description={sessions[1] ? sessions[1].description.json.content[0].content[0].value : ""} subtitles={subtitles1}>
-					<SessionSpeaker>
-						<Speaker img={"https://images.ctfassets.net/ddgzaaogwqkq/2vYjDB1FJfwY7XHbFenBU1/065cef208da354a8bbb517699921edcd/Placeholder_view_vector.svg.png"} name={speakers[0] ? speakers[0].name : ""} content={speakers[0] ? speakers[0].background : ""} />
-						<Speaker img={"https://images.ctfassets.net/ddgzaaogwqkq/2vYjDB1FJfwY7XHbFenBU1/065cef208da354a8bbb517699921edcd/Placeholder_view_vector.svg.png"} name={speakers[1] ? speakers[1].name : ""} content={speakers[1] ? speakers[1].background : ""} />
-					</SessionSpeaker>
-					<Social />
-				</AvailableCard>
-				<AvailableCard img={sessions[0] ? sessions[0].banner.url : ""} title={sessions[0] ? sessions[0].title : ""} description={sessions[0] ? sessions[0].description.json.content[0].content[0].value : ""} indexPart={indexPart2}>
-					<SessionSpeaker>
-						<Speaker img={"https://images.ctfassets.net/ddgzaaogwqkq/2vYjDB1FJfwY7XHbFenBU1/065cef208da354a8bbb517699921edcd/Placeholder_view_vector.svg.png"} name={speakers[0] ? speakers[0].name : ""} content={speakers[0] ? speakers[0].background : ""} />
-						<Speaker img={"https://images.ctfassets.net/ddgzaaogwqkq/2vYjDB1FJfwY7XHbFenBU1/065cef208da354a8bbb517699921edcd/Placeholder_view_vector.svg.png"} name={speakers[1] ? speakers[1].name : ""} content={speakers[1] ? speakers[1].background : ""} />
-						<Speaker img={"/src/img/speaker3.png"} name={"Laurie Moskowitz"} content={"LORE Strategies"} />
-					</SessionSpeaker>
-					<Social />
-				</AvailableCard>
-				<AvailableCard img={"/src/img/image 11-lg.png"} title={"What Can You Trust?"} description={description3} >
-					<SessionSpeaker>
-						<Speaker img={"https://images.ctfassets.net/ddgzaaogwqkq/2vYjDB1FJfwY7XHbFenBU1/065cef208da354a8bbb517699921edcd/Placeholder_view_vector.svg.png"} name={speakers[0] ? speakers[0].name : ""} content={speakers[0] ? speakers[0].background : ""} />
-						<Speaker img={"/src/img/speaker3.png"} name={"Laurie Moskowitz"} content={"LORE Strategies"} />
-					</SessionSpeaker>
-					<Social />
-				</AvailableCard>
+				{sessions.map((session, index) => (
+					<AvailableCard key={index} id={index} img={session.banner.url} title={session.title} description={session.description.json.content[0].content[0].value}>
+						<SessionSpeaker>
+							{session.speakersCollection.items.map((item, key) => (
+								showSpeaker(item, key)
+							))}
+						</SessionSpeaker>
+						<Social />
+					</AvailableCard>
+				))}
 			</div>
 			<Bottom />
 		</div>

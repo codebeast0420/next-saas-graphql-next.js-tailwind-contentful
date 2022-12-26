@@ -185,6 +185,9 @@ export async function getSpeaker() {
 					items {
 						name
 						background
+						image {
+							url
+						}
 					}
 				}
 			}

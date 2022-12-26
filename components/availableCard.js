@@ -1,10 +1,12 @@
 import Image from "next/image";
+import { useEffect } from "react";
 import CommonBtn from "./commonBtn";
 import Date from "./date";
 
-const AvailableCard = ({ children, img, title, description, subtitles, indexPart }) => {
+const AvailableCard = ({ children, img, title, description, subtitles, indexPart, id }) => {
+
 	return (
-		<div className="pb-[70px] mt-[70px]" style={{ borderBottom: "1px solid #475060" }}>
+		<div className="pb-[70px] mt-[70px]" id={`session-${id}`} style={{ borderBottom: "1px solid #475060" }}>
 			<div>
 				<Image src={img} width={1200} height={500} alt="image" />
 			</div>

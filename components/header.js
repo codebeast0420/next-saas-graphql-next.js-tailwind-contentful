@@ -1,9 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css'
 import Logo from './logo';
+import { getSession } from '../src/utils/contentful';
 
 const Header = ({ setIntro, current }) => {
-  const [sessionId, setSessionId] = useState(1);
+  const [sessions, setSessions] = useState([]);
+  useEffect(() => {
+    getSession().then((res) => {
+      setSessions(res.items);
+    })
+  }, [])
+
+  const setSession = (sessionId) => {
+    console.log("df", sessionId);
+    if(localStorage.getItem("SessionId")) {
+      localStorage.removeItem("SessionId")
+    }
+    localStorage.setItem("SessionId", sessionId);
+  }
 
   return (
     <div className={styles.header} style={{ position: "relative", zIndex: "11" }}>
@@ -56,30 +70,14 @@ const Header = ({ setIntro, current }) => {
                 <button className="peer px-5 py-2  text-[#475060] rounded font-semibold  hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">UPCOMING SESSIONS</button>
                 <div className="hidden peer-hover:flex hover:flex w-[280px] flex-col bg-inherit drop-shadow-lg absolute ml-[-130px]">
                   <div className="mt-[20px]"></div>
-                  <div className='flex bg-white hover:bg-[#3185FC] flex-row justify-between p-[5px]'>
-                    <a className="px-5 py-3 font-semibold  text-[#142630] hover:text-white" href="/availableSessions">Introduction To The Problems <br /> And Power Of Social Media</a>
-                    <svg width="18" height="12" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg" stroke='black' className='mr-[15px] mt-[27px]'>
-                      <path d="M11.2443 0.483251L11.617 0.116476C11.7748 -0.0388253 12.03 -0.0388253 12.1862 0.116476L17.8816 5.71914C18.0395 5.87444 18.0395 6.12556 17.8816 6.27921L12.1862 11.8835C12.0284 12.0388 11.7731 12.0388 11.617 11.8835L11.2443 11.5167C11.0848 11.3598 11.0881 11.1037 11.251 10.9501L15.7056 6.66085L0.402962 6.66085C0.179654 6.66085 0 6.48408 0 6.26434L0 5.73566C0 5.51592 0.179654 5.33914 0.402962 5.33914L15.7056 5.33914L11.251 1.04993C11.0864 0.896285 11.0831 0.640204 11.2443 0.483251Z" fill="white" />
-                    </svg>
-                  </div>
-                  <div className='flex bg-white hover:bg-[#3185FC] flex-row justify-between p-0.5'>
-                    <a className="px-5 py-3 font-semibold  text-[#142630] hover:text-white" href="/availableSessions">Creating Your Social Media <br /> Presense And Profile</a>
-                    <svg width="18" height="12" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg" stroke='black' className='mr-[15px] mt-[17px]'>
-                      <path d="M11.2443 0.483251L11.617 0.116476C11.7748 -0.0388253 12.03 -0.0388253 12.1862 0.116476L17.8816 5.71914C18.0395 5.87444 18.0395 6.12556 17.8816 6.27921L12.1862 11.8835C12.0284 12.0388 11.7731 12.0388 11.617 11.8835L11.2443 11.5167C11.0848 11.3598 11.0881 11.1037 11.251 10.9501L15.7056 6.66085L0.402962 6.66085C0.179654 6.66085 0 6.48408 0 6.26434L0 5.73566C0 5.51592 0.179654 5.33914 0.402962 5.33914L15.7056 5.33914L11.251 1.04993C11.0864 0.896285 11.0831 0.640204 11.2443 0.483251Z" fill="white" />
-                    </svg>
-                  </div>
-                  <div className='flex bg-white hover:bg-[#3185FC] flex-row justify-between p-0.5'>
-                    <a className="px-5 py-3 font-semibold  text-[#142630] hover:text-white" href="/availableSessions">Who Can You Trust?</a>
-                    <svg width="18" height="12" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg" stroke='black' className='mr-[15px] mt-[17px]'>
-                      <path d="M11.2443 0.483251L11.617 0.116476C11.7748 -0.0388253 12.03 -0.0388253 12.1862 0.116476L17.8816 5.71914C18.0395 5.87444 18.0395 6.12556 17.8816 6.27921L12.1862 11.8835C12.0284 12.0388 11.7731 12.0388 11.617 11.8835L11.2443 11.5167C11.0848 11.3598 11.0881 11.1037 11.251 10.9501L15.7056 6.66085L0.402962 6.66085C0.179654 6.66085 0 6.48408 0 6.26434L0 5.73566C0 5.51592 0.179654 5.33914 0.402962 5.33914L15.7056 5.33914L11.251 1.04993C11.0864 0.896285 11.0831 0.640204 11.2443 0.483251Z" fill="white" />
-                    </svg>
-                  </div>
-                  <div className='flex bg-white hover:bg-[#3185FC] flex-row justify-between p-0.5'>
-                    <a className="px-5 py-3 font-semibold  text-[#142630] hover:text-white" href="/availableSessions">Finding The Right Place And <br /> Approched The Get Engaged</a>
-                    <svg width="18" height="12" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg" stroke='black' className='mr-[15px] mt-[17px]'>
-                      <path d="M11.2443 0.483251L11.617 0.116476C11.7748 -0.0388253 12.03 -0.0388253 12.1862 0.116476L17.8816 5.71914C18.0395 5.87444 18.0395 6.12556 17.8816 6.27921L12.1862 11.8835C12.0284 12.0388 11.7731 12.0388 11.617 11.8835L11.2443 11.5167C11.0848 11.3598 11.0881 11.1037 11.251 10.9501L15.7056 6.66085L0.402962 6.66085C0.179654 6.66085 0 6.48408 0 6.26434L0 5.73566C0 5.51592 0.179654 5.33914 0.402962 5.33914L15.7056 5.33914L11.251 1.04993C11.0864 0.896285 11.0831 0.640204 11.2443 0.483251Z" fill="white" />
-                    </svg>
-                  </div>
+                  {sessions.map((session, index) => (
+                    <div className='flex bg-white hover:bg-[#3185FC] flex-row justify-between p-[5px] items-center' key={index}>
+                      <a className="w-[85%] px-5 py-3 font-semibold  text-[#142630] hover:text-white" href="/availableSessions" onClick={() => setSession(index)}>{session.title}</a>
+                      <svg width="18" height="12" viewBox="0 0 12 18" fill="none" xmlns="http://www.w3.org/2000/svg" stroke='black' className='mr-[15px]'>
+                        <path d="M11.2443 0.483251L11.617 0.116476C11.7748 -0.0388253 12.03 -0.0388253 12.1862 0.116476L17.8816 5.71914C18.0395 5.87444 18.0395 6.12556 17.8816 6.27921L12.1862 11.8835C12.0284 12.0388 11.7731 12.0388 11.617 11.8835L11.2443 11.5167C11.0848 11.3598 11.0881 11.1037 11.251 10.9501L15.7056 6.66085L0.402962 6.66085C0.179654 6.66085 0 6.48408 0 6.26434L0 5.73566C0 5.51592 0.179654 5.33914 0.402962 5.33914L15.7056 5.33914L11.251 1.04993C11.0864 0.896285 11.0831 0.640204 11.2443 0.483251Z" fill="white" />
+                      </svg>
+                    </div>
+                  ))}
                 </div>
               </li>
             </ul>
