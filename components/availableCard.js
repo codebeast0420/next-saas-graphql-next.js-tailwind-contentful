@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import CommonBtn from "./commonBtn";
 import Date from "./date";
 
-const AvailableCard = ({ children, img, title, description, subtitles, indexPart, id }) => {
+const AvailableCard = ({ children, img, title, description, subtitles, indexPart, id, date, time }) => {
 
 	return (
 		<div className="pb-[70px] mt-[70px]" id={`session-${id}`} style={{ borderBottom: "1px solid #475060" }}>
@@ -14,7 +14,7 @@ const AvailableCard = ({ children, img, title, description, subtitles, indexPart
 				<div className="mt-[20px] w-[55%]">
 					<div>
 						<div className="" style={{ borderBottom: "1px solid rgba(71, 80, 96, .2)", borderTop: "1px solid rgba(71, 80, 96, .2)" }}>
-							<Date date={"January 22, 2023"} time={"03:00PM - 05:00PM ET"} className={"justify-start"} />
+							<Date date={date} time={time} className={"justify-start"} />
 						</div>
 						<div>
 							<div className="mt-[10px]">

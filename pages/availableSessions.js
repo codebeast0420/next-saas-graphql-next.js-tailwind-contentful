@@ -20,6 +20,23 @@ const AvailableSessions = () => {
 			'Organizer who uses social media to inspire and organize individuals around particular causes.',
 			'Monitor who reports disinformation and divisive content to interested organizations.'
 		])
+
+	const monthNames = ["January", "February", "March", "April", "May", "June",
+		"July", "August", "September", "October", "November", "December"
+	];
+
+	const convertDate = (start) => {
+		const date = new Date(start);
+		const dateString = `${monthNames[date.getMonth(date)]} ${date.getDate(date)}, ${date.getFullYear(date)}`
+		return dateString;
+	}
+
+	const convertTime = (start) => {
+		const date = new Date(start);
+		const time = date.getHours(date) + 11;
+		const dateString = `${date.getHours(date) + 11} : ${date.getUTCMinutes(date)} : ${date.getSeconds(date)}`
+		return dateString;
+	}
 	useEffect(() => {
 		getSession().then((res) => {
 			setSessions(res.items);
@@ -64,7 +81,15 @@ const AvailableSessions = () => {
 			<TopTitle title={"Available Sessions"} />
 			<div className="relative z-[11] pl-[15%] pr-[15%] bg-white pt-[80px]" style={{ maxWidth: "1374px" }}>
 				{sessions.map((session, index) => (
-					<AvailableCard key={index} id={index} img={session.banner.url} title={session.title} description={session.description.json.content[0].content[0].value}>
+					<AvailableCard
+						key={index}
+						id={index}
+						img={session.banner.url}
+						title={session.title}
+						description={session.description.json.content[0].content[0].value}
+						date={convertDate(session.startTime)}
+						time={"03.00PM - 05:00AM ET"}
+					>
 						<SessionSpeaker>
 							{session.speakersCollection.items.map((item, key) => (
 								showSpeaker(item, key)

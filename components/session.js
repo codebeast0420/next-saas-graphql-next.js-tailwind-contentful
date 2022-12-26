@@ -15,8 +15,8 @@ const Session = () => {
 	const [header, setHeader] = useState('');
 	const [sessions, setSessions] = useState([{}]);
 	const monthNames = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
+		"July", "August", "September", "October", "November", "December"
+	];
 
 	const convertDate = (start) => {
 		const date = new Date(start);
@@ -30,7 +30,7 @@ const Session = () => {
 		const dateString = `${date.getHours(date) + 11} : ${date.getUTCMinutes(date)} : ${date.getSeconds(date)}`
 		return dateString;
 	}
-	
+
 
 	useEffect(() => {
 		getSessionList().then((res) => {
@@ -68,13 +68,13 @@ const Session = () => {
 							{sessions.map((session, index) => (
 								<SwiperSlide key={index}>
 									<SessionCard
-										speakers={session.speakersCollection ?  session.speakersCollection.items : [""]}
+										speakers={session.speakersCollection ? session.speakersCollection.items : [""]}
 										src={session.banner ? session.banner.url : ""}
 										title={session ? session.title : ""}
 										text={session.description ? documentToReactComponents(session.description.json) : ""}
 										date={session.startTime ? convertDate(sessions[index].startTime) : ""}
 										time={"03.00PM - 05:00AM ET"}
-										index = {index}
+										index={index}
 									/>
 								</SwiperSlide>
 							))}
