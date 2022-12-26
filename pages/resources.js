@@ -41,8 +41,8 @@ const Resources = () => {
 				<div className="mb-[50px]">
 					<div className="flex mt-[50px] flex-wrap justify-between">
 						{resources.map((resource, index) => (
-							<ResourceCard title={resource.title} content={resource.description} img={resource.image.url}>
-								{resource.tags.map((tag, index) => (
+							<ResourceCard title={resource.title} content={resource.description} img={resource.image ? resource.image.url : ""}>
+								{resource.tags && resource.tags.map((tag, index) => (
 									<CommonBtn text={tag} bgColor={"bg-[#e1e4ea]"} key={index} className={index !== 0 && ("ml-[10px]")} />
 								))}
 							</ResourceCard>

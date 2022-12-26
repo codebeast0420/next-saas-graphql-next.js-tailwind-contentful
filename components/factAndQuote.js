@@ -37,7 +37,7 @@ const FactAndQuote = () => {
 					<p className="text-lg mt-[5px] text-[#475060]" style={{ fontFamily: "Jost" }}>{description}</p>
 					<div className="mt-[30px] flex">
 						<Swiper
-							slidesPerView={1.8}
+							slidesPerView={1.6}
 							modules={[Navigation]}
 							onSlideChange={(swiper) => console.log(swiper)}
 							navigation={{
