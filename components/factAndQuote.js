@@ -10,8 +10,8 @@ import SwiperCore, { Navigation } from "swiper/core";
 const FactAndQuote = () => {
 	const [header, setHeader] = useState('');
 	const [description, setDescription] = useState('');
-	const [factCard, setFactCard] = useState('');
-	const [quoteCard, setQuoteCard] = useState({});
+	const [factCards, setFactCards] = useState([]);
+	const [quoteCards, setQuoteCards] = useState([{}]);
 
 	useEffect(() => {
 		getFactAndQuote().then((res) => {
@@ -21,11 +21,11 @@ const FactAndQuote = () => {
 		})
 
 		getFactCard().then((res) => {
-			setFactCard(res.body)
+			setFactCards(res.items)
 		})
 
 		getQuoteCard().then((res) => {
-			setQuoteCard(res);
+			setQuoteCards(res.items);
 			console.log(res);
 		})
 	}, [])
@@ -46,15 +46,16 @@ const FactAndQuote = () => {
 							}}
 							onSwiper={(swiper) => console.log(swiper)}
 						>
-							<SwiperSlide>
-								<FactQuoteCard content={factCard} />
-							</SwiperSlide>
-							<SwiperSlide>
-
-								<FactQuoteCard creator={quoteCard.creator ? quoteCard.creator : ""} content={quoteCard.body} />
-								{/* <FactQuoteCard imgSrc={"/src/img/image 12.png"} name={"Nicolas Smith"} content={factCard} school={"12th Science Student at ABC High School."} />
-						<FactQuoteCard imgSrc={"/src/img/image 13.png"} className={"ml-[10px]"} name={"Michal Jordan"} content={quoteCard} school={"12th Science Student at ABC High School."} /> */}
-							</SwiperSlide>
+							{factCards.map((factCard, index) => (
+								<SwiperSlide>
+									<FactQuoteCard key={index} content={factCard.body} />
+								</SwiperSlide>
+							))}
+							{quoteCards.map((quoteCard, index) => (
+								<SwiperSlide>
+									<FactQuoteCard key={index} creator={quoteCard.creator ? quoteCard.creator : ""} content={quoteCard.body} />
+								</SwiperSlide>
+							))}
 						</Swiper>
 					</div>
 					<SlideBtn />

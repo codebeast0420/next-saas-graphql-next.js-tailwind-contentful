@@ -197,33 +197,37 @@ export async function getFactCard() {
 	const { data } = await apolloClient.query({
 		query: gql`
 			query GetFactCard {
-				factCard(id:"4w1avLxcr039mFrbHIc7DN"){
-					body
-				}
+				factCardCollection {
+					items{
+						body
+					}
+				} 
 			}
 		`,
 	});
-	return data.factCard;
+	return data.factCardCollection;
 }
 
 export async function getQuoteCard() {
 	const { data } = await apolloClient.query({
 		query: gql`
 			query GetQuoteCard {
-				quoteCard(id:"7EjzNolwAByOex6Z8Zliaj") {
-					body
-					creator {
-						name
-						background
-						image {
-							url
+				quoteCardCollection{
+					items{
+						body
+						creator {
+							name
+							background
+							image {
+								url
+							}
 						}
 					}
 				}
 			}
 		`,
 	});
-	return data.quoteCard;
+	return data.quoteCardCollection;
 }
 
 export default {
