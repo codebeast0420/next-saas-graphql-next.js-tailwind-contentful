@@ -8,10 +8,9 @@ import { getResources } from "../src/utils/contentful";
 
 const Resources = () => {
 
-	const [title, setTitle] = useState('')
-	const [description, setDescription] = useState('')
-	const [tags, setTags] = useState([])
+	const [resources, setResources] = useState([{}])
 	const [filter, setFilter] = useState("all");
+	const [tags, setTags] = useState([]);
 
 	const tagFilter = (index) => {
 		setFilter(index);
@@ -19,56 +18,35 @@ const Resources = () => {
 
 	useEffect(() => {
 		getResources().then((res) => {
-			setTags(res.tags);
-			console.log(tags);
-			setTitle(res.title);
-			setDescription(res.description);
+			setResources(res.items);
+			setTags(res.items[0].tags);
 		})
-	})
+	}, [])
 
 	return (
 		<div className="bg-white flex flex-col items-center">
 			<link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet' />
 			<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' />
-			<Header current={3}/>
+			<Header current={3} />
 			<TopTitle title={"Resources"} />
-			<div className="relative z-[11] bg-white pl-[10%] pr-[10%] mt-[20px]" style={{ maxWidth: "1374px" }}>
+			<div className="relative z-[11] w-full bg-white pl-[10%] pr-[10%] mt-[20px]" style={{ maxWidth: "1374px" }}>
 				<div>
 					<p className="text-[#142630] font-bold non-italic text-2xl" style={{ fontFamily: "Lato" }}>Tags:</p>
 					<div className="flex ">
 						{tags.map((tag, index) => (
 							<CommonBtn text={tag} key={index} bgColor={"bg-[#e1e4ea]"} className={"ml-[10px]"} onClick={() => tagFilter(tag)} />
 						))}
-						{/* <CommonBtn text={"Video"}  onClick={() => tagFilter("Video")} />
-						<CommonBtn text={"Article"} bgColor={"bg-[#e1e4ea]"} className={"ml-[10px]"} onClick={() => tagFilter("Article")} />
-						<CommonBtn text={"Session1"} bgColor={"bg-[#e1e4ea]"} className={"ml-[10px]"} onClick={() => tagFilter("Session1")} />
-						<CommonBtn text={"Session2"} bgColor={ "bg-[#e1e4ea]"} className={"ml-[10px]"} onClick={() => tagFilter("Session2")} />
-						<CommonBtn text={"Session3"} bgColor={"bg-[#e1e4ea]"} className={"ml-[10px]"} onClick={() => tagFilter("Session3")} />
-						<CommonBtn text={"Session4"} bgColor={"bg-[#e1e4ea]"} className={"ml-[10px]"} onClick={() => tagFilter("all")} /> */}
 					</div>
 				</div>
 				<div className="mb-[50px]">
-					<div className="flex mt-[50px] justify-between">
-							<ResourceCard title={title} content={description} img={"/src/img/resouce_card_1.png"}>
-								<CommonBtn text={"Article"} bgColor={"bg-[#e1e4ea]"} />
-								<CommonBtn text={"Video"} bgColor={"bg-[#e1e4ea]"} className={"ml-[10px]"} />
+					<div className="flex mt-[50px] flex-wrap justify-between">
+						{resources.map((resource, index) => (
+							<ResourceCard title={resource.title} content={resource.description} img={resource.image.url}>
+								{resource.tags.map((tag, index) => (
+									<CommonBtn text={tag} bgColor={"bg-[#e1e4ea]"} key={index} className={index !== 0 && ("ml-[10px]")} />
+								))}
 							</ResourceCard>
-							<ResourceCard title={title} content={description} img={"/src/img/resouce_card_2.png"}>
-								<CommonBtn text={"Session1"} bgColor={"bg-[#e1e4ea]"} />
-							</ResourceCard>
-							<ResourceCard title={title} content={description} img={"/src/img/resouce_card_3.png"}>
-								<CommonBtn text={"Article"} bgColor={"bg-[#e1e4ea]"} />
-							</ResourceCard>
-					</div>
-					<div className="flex mt-[50px] justify-between">
-							<ResourceCard title={title} content={description} img={"/src/img/resouce_card_4.png"}>
-								<CommonBtn text={"Video"} bgColor={"bg-[#e1e4ea]"} /> </ResourceCard>
-							<ResourceCard title={title} content={description} img={"/src/img/resouce_card_5.png"}>
-								<CommonBtn text={"Article"} bgColor={"bg-[#e1e4ea]"} /> </ResourceCard>
-							<ResourceCard title={title} content={description} img={"/src/img/resouce_card_6.png"}>
-								<CommonBtn text={"Article"} bgColor={"bg-[#e1e4ea]"} />
-								<CommonBtn text={"Video"} bgColor={"bg-[#e1e4ea]"} className={"ml-[10px]"} />
-							</ResourceCard>
+						))}
 					</div>
 				</div>
 			</div>

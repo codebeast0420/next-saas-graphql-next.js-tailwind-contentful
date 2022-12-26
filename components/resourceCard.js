@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const ResourceCard = ({ img, title, content, children }) => {
 	return (
-		<div className="w-[32%] rounded-[10px] p-[5px]" style={{ boxShadow: "0px 10px 40px rgba(7, 24, 50, 0.07)" }}>
+		<div className="w-[32%] rounded-[10px] p-[5px] mt-[10px] mb-[10px]" style={{ boxShadow: "0px 10px 40px rgba(7, 24, 50, 0.07)" }}>
 			<Image src={img} width={370} height={265} alt={"Resource Card"} />
 			<div className="mt-[10px] pl-[15px] pr-[15px] pb-[30px]">
 				<div className="flex">

@@ -77,15 +77,20 @@ export async function getResources() {
 	const { data } = await apolloClient.query({
 		query: gql`
       query GetResources {
-				resource(id:"6fnUwcyDd2Nf5aMOdOsscf") {
-					title
-					description
-					tags
+				resourceCollection{
+					items{
+						title
+						description
+						tags
+						image{
+							url
+						}
+					}
 				}
       }
     `,
 	});
-	return data.resource;
+	return data.resourceCollection;
 }
 
 export async function getLandingAboutUs() {
