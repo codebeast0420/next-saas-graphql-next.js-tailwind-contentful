@@ -24,7 +24,6 @@ const AboutUs = () => {
 			setStudentLeadersHeader(res.studentLeadersHeader);
 			setSubheading(res.subheading);
 			setLeaders(res.studentLeadersCollection.items);
-			console.log(res.studentLeadersCollection.items);
 
 			let temp = res.body.json.content[0].content[0].value.split("\n");
 			for (let i = 0; i < temp.length; i++) {
@@ -96,15 +95,6 @@ const AboutUs = () => {
 								<AboutUsCard key={index} leader={leader} />
 							))}
 							<AboutUsCard leader={leaders[0]} />
-							{/* <AboutUsCard />
-							<AboutUsCard />
-							<AboutUsCard />
-							<AboutUsCard />
-							<AboutUsCard />
-							<AboutUsCard />
-							<AboutUsCard />
-							<AboutUsCard />
-							<AboutUsCard /> */}
 						</div>
 					</div>
 					<div className="w-[50%] pl-[25px] mb-[50px]" style={{ borderLeft: "1px solid #D9D9D9" }}>

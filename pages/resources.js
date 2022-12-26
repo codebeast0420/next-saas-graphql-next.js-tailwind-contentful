@@ -30,7 +30,7 @@ const Resources = () => {
 		<div className="bg-white flex flex-col items-center">
 			<link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet' />
 			<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' />
-			<Header />
+			<Header current={3}/>
 			<TopTitle title={"Resources"} />
 			<div className="relative z-[11] bg-white pl-[10%] pr-[10%] mt-[20px]" style={{ maxWidth: "1374px" }}>
 				<div>

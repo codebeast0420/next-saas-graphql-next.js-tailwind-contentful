@@ -74,6 +74,7 @@ const Session = () => {
 										text={session.description ? documentToReactComponents(session.description.json) : ""}
 										date={session.startTime ? convertDate(sessions[index].startTime) : ""}
 										time={"03.00PM - 05:00AM ET"}
+										index = {index}
 									/>
 								</SwiperSlide>
 							))}

@@ -113,3 +113,7 @@ a {
 .dot-line {
   margin-left: 320px ;
 }
+
+.session-shadow {
+  box-shadow: 0px 10px 40px rgba(7, 24, 50, 0.07);
+}
