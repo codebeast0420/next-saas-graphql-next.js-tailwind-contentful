@@ -7,13 +7,18 @@ const Header = ({ setIntro, current }) => {
   const [sessions, setSessions] = useState([]);
   useEffect(() => {
     getSession().then((res) => {
-      setSessions(res.items);
+      const temp = res.items.slice().sort((a, b) => {
+        const d1 = new Date(a.startTime);
+        const d2 = new Date(b.startTime);
+        return d1.getTime() - d2.getTime();
+      });
+      setSessions(temp);
     })
   }, [])
 
   const setSession = (sessionId) => {
     console.log("df", sessionId);
-    if(localStorage.getItem("SessionId")) {
+    if (localStorage.getItem("SessionId")) {
       localStorage.removeItem("SessionId")
     }
     localStorage.setItem("SessionId", sessionId);
