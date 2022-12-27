@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getLandingAboutUs } from "../src/utils/contentful";
 import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
+import { BLOCKS } from '@contentful/rich-text-types';
 
 const AboutUs = () => {
 	const [header, setHeader] = useState('');
@@ -22,7 +22,6 @@ const AboutUs = () => {
 	useEffect(() => {
 		getLandingAboutUs().then((res) => {
 			setHeader(res.header);
-			// setBody(res.body.json.content[0].content[0].value);
 			setBody(res.body);
 			setCtaText(res.ctaText);
 			setPreHeader(res.preHeader);

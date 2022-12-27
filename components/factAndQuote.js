@@ -5,7 +5,7 @@ import SlideBtn from "./slideBtn";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation'
-import SwiperCore, { Navigation } from "swiper/core";
+import { Navigation } from "swiper/core";
 
 const FactAndQuote = () => {
 	const [header, setHeader] = useState('');
@@ -17,7 +17,6 @@ const FactAndQuote = () => {
 		getFactAndQuote().then((res) => {
 			setHeader(res.header);
 			setDescription(res.description);
-			console.log(res);
 		})
 
 		getFactCard().then((res) => {
@@ -26,7 +25,6 @@ const FactAndQuote = () => {
 
 		getQuoteCard().then((res) => {
 			setQuoteCards(res.items);
-			console.log(res);
 		})
 	}, [])
 	return (
