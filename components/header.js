@@ -29,7 +29,7 @@ const Header = ({ setIntro, current }) => {
               <li style={{ fontFamily: "Lato" }}>
                 <a
                   href="/"
-                  className="block py-2 pl-3 pr-4 flex font-semibold flex-col items-center text-blue-700 bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-blue-700 dark:bg-blue-600 "
+                  className={`block py-2 pl-3 pr-4 flex font-semibold flex-col items-center ${current === 1 ? "text-blue-700 bg-blue-700 md:text-blue-700" : "text-[#475060]"}  md:p-0 rounded md:bg-transparent  dark:bg-blue-600`}
                   aria-current="page"
                 >
                   HOME
@@ -43,7 +43,7 @@ const Header = ({ setIntro, current }) => {
               <li style={{ fontFamily: "Lato" }}>
                 <a
                   href="/aboutUs"
-                  className="block py-2 pl-3 pr-4 font-semibold text-[#475060] flex flex-col items-center rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                  className={`block py-2 pl-3 pr-4 font-semibold ${current === 2 ? "text-blue-700  md:text-blue-700" : "text-[#475060]"} flex flex-col items-center rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0`}
                 >
                   ABOUT US
                   {current === 2 && (
@@ -56,7 +56,7 @@ const Header = ({ setIntro, current }) => {
               <li style={{ fontFamily: "Lato" }}>
                 <a
                   href="/resources"
-                  className="block py-2 pl-3 pr-4 font-semibold text-[#475060] flex flex-col items-center rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                  className={`block py-2 pl-3 pr-4 font-semibold ${current === 3 ? "text-blue-700  md:text-blue-700" : "text-[#475060]"} flex flex-col items-center rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0`}
                 >
                   RESOURCES
                   {current === 3 && (
