@@ -3,12 +3,12 @@ import Date from "./date";
 import { getSpeaker } from "../src/utils/contentful";
 import { useEffect, useState } from "react";
 
-const SessionCard = ({ src, title, text, date, time, speakers, index }) => {
+const SessionCard = ({ src, title, text, date, time, speakers, index, length }) => {
 
 
 	return (
 		<div
-			className={`p-[10px] w-full rounded-[10px] h-full flex flex-col justify-between ml-[40px] ${index === 0 ? "bg-white session-shadow" : "bg-[#F7F7F7]"}`}
+			className={`p-[10px] w-5/6 rounded-[10px] h-full flex flex-col justify-between ml-[40px] ${index === 0 ? "bg-white session-shadow" : "bg-[#F7F7F7]"}`}
 		>
 			{index === 0 && (
 				<div className="absolute bg-[#1CCADF] ml-[-40px] mt-[15px] text-white h-[40px] rounded-[4px] w-[140px] flex items-center justify-center" style={{fontFamily: 'Lato' , boxShadow: "0px 5px 50px rgba(7, 24, 50, 0.12)"}}>
@@ -40,6 +40,9 @@ const SessionCard = ({ src, title, text, date, time, speakers, index }) => {
 					))}
 				</div>
 			</div>
+			{/* {index === length && (
+				<div className="h-[10px] w-[70px]"></div>
+			)}  */}
 		</div>
 	)
 }

@@ -67,7 +67,7 @@ const Session = () => {
 					</div>
 					<div className="mt-[20px] flex">
 						<Swiper
-							spaceBetween={50}
+							spaceBetween={5}
 							slidesPerView={2.5}
 							modules={[Navigation]}
 							onSlideChange={(swiper) => console.log(swiper)}
@@ -76,7 +76,7 @@ const Session = () => {
 								prevEl: '.prev-button',
 							}}
 							onSwiper={(swiper) => console.log(swiper)}
-							className="w-[1000px]"
+							className="w-[1300px]"
 						>
 							{sessions.map((session, index) => (
 								<SwiperSlide key={index}>
@@ -88,6 +88,7 @@ const Session = () => {
 										date={session.startTime ? convertDate(sessions[index].startTime) : ""}
 										time={session.startTime ? convertTime(sessions[index].startTime, sessions[index].endTime) : ""}
 										index={index}
+										length = {sessions.length}
 									/>
 								</SwiperSlide>
 							))}
