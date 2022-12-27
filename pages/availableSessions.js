@@ -67,6 +67,19 @@ const AvailableSessions = () => {
 				})
 			}
 		}
+	}, [])
+
+	useEffect(() => {
+		if (sessions[0]) {
+			const temp = sessions.slice().sort((a, b) => {
+				const d1 = new Date(a.startTime);
+				const d2 = new Date(b.startTime);
+				console.log(d1.getTime() - d2.getTime());
+				return d1.getTime() - d2.getTime();
+			});
+			console.log(temp);
+			setSessions(temp);
+		}
 	})
 
 	const showSpeaker = (item, key) => {
