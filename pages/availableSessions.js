@@ -64,6 +64,9 @@ const AvailableSessions = () => {
 			setSpeakers(res.items);
 		})
 
+	}, [])
+
+	useEffect(() => {
 		if (localStorage.getItem("SessionId")) {
 			let id = localStorage.getItem("SessionId");
 			if (document.getElementById("session-" + id)) {
@@ -74,7 +77,7 @@ const AvailableSessions = () => {
 				})
 			}
 		}
-	}, [])
+	})
 
 
 	const showSpeaker = (item, key) => {
@@ -92,7 +95,7 @@ const AvailableSessions = () => {
 		<div className="flex bg-white flex-col items-center" >
 			<link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet' />
 			<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' />
-			<Header />
+			<Header current={4}/>
 			<TopTitle title={"Available Sessions"} />
 			<div className="relative z-[11] pl-[15%] pr-[15%] bg-white pt-[80px]" style={{ maxWidth: "1374px" }}>
 				{sessions.map((session, index) => (

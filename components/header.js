@@ -17,7 +17,6 @@ const Header = ({ setIntro, current }) => {
   }, [])
 
   const setSession = (sessionId) => {
-    console.log("df", sessionId);
     if (localStorage.getItem("SessionId")) {
       localStorage.removeItem("SessionId")
     }
@@ -72,7 +71,14 @@ const Header = ({ setIntro, current }) => {
                 </a>
               </li>
               <li style={{ fontFamily: "Lato" }}>
-                <button className="peer px-5 py-2  text-[#475060] rounded font-semibold  hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">UPCOMING SESSIONS</button>
+                <button className="peer px-5 py-2 flex flex-col items-center text-[#475060] rounded font-semibold  hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+                  UPCOMING SESSIONS
+                  {current === 4 && (
+                    <svg className='mt-[30px]' width="20" height="3" viewBox="0 0 20 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="20" height="3" rx="1.5" fill="#3185FC" />
+                    </svg>
+                  )}
+                </button>
                 <div className="hidden peer-hover:flex hover:flex w-[280px] flex-col bg-inherit drop-shadow-lg absolute ml-[-130px]">
                   <div className="mt-[20px]"></div>
                   {sessions.map((session, index) => (
