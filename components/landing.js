@@ -24,7 +24,6 @@ const Landing = () => {
 			setHeroSub(res.subtext);
 			setRegisterBtn(res.ctaButtonText);
 			setImageUrl(res.image.url);
-			console.log(days, hours, mins, seconds);
 		});
 	}, []);
 
