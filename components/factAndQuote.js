@@ -37,21 +37,19 @@ const FactAndQuote = () => {
 						<Swiper
 							slidesPerView={1.6}
 							modules={[Navigation]}
-							onSlideChange={(swiper) => console.log(swiper)}
 							navigation={{
 								nextEl: '.next-fact',
 								prevEl: '.prev-fact',
 							}}
-							onSwiper={(swiper) => console.log(swiper)}
 						>
 							{factCards.map((factCard, index) => (
-								<SwiperSlide>
-									<FactQuoteCard key={index} content={factCard.body} />
+								<SwiperSlide key={index}>
+									<FactQuoteCard content={factCard.body} />
 								</SwiperSlide>
 							))}
 							{quoteCards.map((quoteCard, index) => (
-								<SwiperSlide>
-									<FactQuoteCard key={index} creator={quoteCard.creator ? quoteCard.creator : ""} content={quoteCard.body} />
+								<SwiperSlide key={index}>
+									<FactQuoteCard creator={quoteCard.creator ? quoteCard.creator : ""} content={quoteCard.body} />
 								</SwiperSlide>
 							))}
 						</Swiper>

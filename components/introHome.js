@@ -42,7 +42,7 @@ const IntroHome = (props) => {
 
 	useEffect(() => {
 		setSessions(props.sessions);
-	})
+	}, [])
 
 	useEffect(() => {
 		setDays(parseInt(props.rest / 86400000));

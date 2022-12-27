@@ -28,7 +28,7 @@ const WhatWeDo = () => {
 			setTopicHeader(res.topicsHeader);
 			setTopics(res.topics);
 		})
-	})
+	}, [])
 	return (
 		<div className="bg-[#ffebcc] w-full relative flex flex-col items-center">
 			<div style={{ maxWidth: "1374px" }}>

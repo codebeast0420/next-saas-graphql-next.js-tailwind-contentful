@@ -27,7 +27,7 @@ const AboutUs = () => {
 			setPreHeader(res.preHeader);
 			setCollageImagesCollection(res.collageImagesCollection.items);
 		})
-	})
+	}, [])
 	return (
 		<div className="z-20 w-full relative  mt-[50px] flex flex-col items-center">
 			<div style={{ maxWidth: "1374px" }}>
@@ -37,14 +37,16 @@ const AboutUs = () => {
 						<p className="text-3xl font-bold mt-[5px] text-[#142630]" style={{ fontFamily: "Lato" }}>{header}</p>
 						<div className="mt-[15px] text-[#475060]" style={{ fontFamily: "Jost" }}>{documentToReactComponents(body.json, options)}</div>
 						<div className="mt-[50px]">
-							<a style={{boxShadow: "0px 10px 25px rgba(28, 202, 223, 0.3)"}} className={`pt-[8px] pb-[8px] pl-[15px] pr-[15px] rounded-sm bg-[#1CCADF] text-white mt-[30px]`} href="/aboutUs" >
+							<a style={{ boxShadow: "0px 10px 25px rgba(28, 202, 223, 0.3)" }} className={`pt-[8px] pb-[8px] pl-[15px] pr-[15px] rounded-sm bg-[#1CCADF] text-white mt-[30px]`} href="/aboutUs" >
 								{ctaText}
 							</a>
 						</div>
 					</div>
 					<div className="pl-[3%]">
 						<div className="flex items-start">
-							<Image src={collageImagesCollection[0] ? collageImagesCollection[0].url : ""} width={75} height={75} alt="woman1" style={{ borderRadius: "5rem" }} className="mt-[24px]" />
+							{collageImagesCollection[0] && (
+								<Image src={collageImagesCollection[0].url} width={75} height={75} alt="woman1" style={{ borderRadius: "5rem" }} className="mt-[24px]" />
+							)}
 							<div className="flex flex-col mt-[24px]">
 								<Image
 									src={"/src/img/Rectangle 92.png"}
@@ -61,29 +63,36 @@ const AboutUs = () => {
 									alt="blue quater circul"
 								/>
 							</div>
-							<Image
-								src={collageImagesCollection[3] ? collageImagesCollection[3].url : ""}
-								width={200}
-								height={200}
-								alt="women"
-								style={{ borderTopLeftRadius: "5rem" }}
-								className="ml-[5px]" />
+							{collageImagesCollection[3] && (
+								<Image
+									src={collageImagesCollection[3]}
+									width={200}
+									height={200}
+									alt="women"
+									style={{ borderTopLeftRadius: "5rem" }}
+									className="ml-[5px]"
+								/>
+							)}
 						</div>
-						<Image
-							src={collageImagesCollection[1] ? collageImagesCollection[1].url : ""}
-							width={110}
-							height={110}
-							alt="man1"
-							style={{ borderBottomLeftRadius: "4rem" }}
-						/>
-						<Image
-							src={collageImagesCollection[2] ? collageImagesCollection[2].url : ""}
-							width={110}
-							className="ml-[122px] mt-[-45px]"
-							height={110}
-							alt="woman2"
-							style={{ borderBottomRightRadius: "4rem" }}
-						/>
+						{collageImagesCollection[1] && (
+							<Image
+								src={collageImagesCollection[1]}
+								width={110}
+								height={110}
+								alt="man1"
+								style={{ borderBottomLeftRadius: "4rem" }}
+							/>
+						)}
+						{collageImagesCollection[2] && (
+							<Image
+								src={collageImagesCollection[2]}
+								width={110}
+								className="ml-[122px] mt-[-45px]"
+								height={110}
+								alt="woman2"
+								style={{ borderBottomRightRadius: "4rem" }}
+							/>
+						)}
 						<Image
 							src={"/src/img/Rectangle 91.png"}
 							width={50}

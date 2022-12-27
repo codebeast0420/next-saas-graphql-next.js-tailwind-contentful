@@ -77,7 +77,9 @@ const Landing = () => {
 						</div>
 					</div>
 					<div className="w-2/5 mt-[20px] ml-[18%] pb-8 z-1">
-						<Image src={imageUrl ? imageUrl : ""} width={530} height={465} alt="main image" />
+						{imageUrl && (
+							<Image src={imageUrl} width={530} height={465} alt="main image" />
+						)}
 					</div>
 					<div className="absolute mt-[308px] dot-line">
 						<DotLine />
