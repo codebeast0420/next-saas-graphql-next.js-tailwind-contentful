@@ -13,6 +13,7 @@ const Landing = () => {
 	const [sessions, setSessions] = useState([]);
 	const [imageUrl, setImageUrl] = useState('');
 	const [rest, setRest] = useState(0);
+	const [index, setIndex] = useState(0);
 	const monthNames = ["January", "February", "March", "April", "May", "June",
 		"July", "August", "September", "October", "November", "December"
 	];
@@ -36,9 +37,20 @@ const Landing = () => {
 	}, []);
 
 	useEffect(() => {
-		if (sessions[0]) {
-			const until = new Date(sessions[0].startTime);
-			setRest(until.getTime() - Date.now());
+		let i = 0;
+		while(i < sessions.length) {
+			if (sessions[i]) {
+				const until = new Date(sessions[i].startTime);
+				if(until.getTime() - Date.now() > 0) {
+					setRest(until.getTime() - Date.now());
+					setIndex(i);
+					break;
+				}
+				else {
+					// setIndex(index + 1);
+					i++;
+				}
+			}
 		}
 	})
 
@@ -90,8 +102,9 @@ const Landing = () => {
 				<IntroHome
 					rest={rest}
 					sessions={sessions}
-					first_date={sessions[0] ? convertDate(sessions[0].startTime) : ""}
-					first_time={sessions[0] ? convertTime(sessions[0].startTime, sessions[0].endTime) : ""}
+					first_date={sessions[index] ? convertDate(sessions[index].startTime) : ""}
+					first_time={sessions[index] ? convertTime(sessions[index].startTime, sessions[index].endTime) : ""}
+					index = {index}
 				/>
 			)}
 		</div>

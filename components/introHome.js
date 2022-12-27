@@ -66,8 +66,8 @@ const IntroHome = (props) => {
 					<div className=" p-[30px] w-2/3 bg-white flex flex-col items-center z-1" >
 						<p className="text-[#FF9900]" style={{ fontFamily: "Lato" }}>First Session</p>
 						<div className="mt-[10px] flex flex-col items-center">
-							<h1 style={{ fontFamily: 'Lato' }} className="font-bold text-3xl text-[#142630]">{sessions[0] ? sessions[0].title : ""}</h1>
-							<p style={{ fontFamily: 'Lato' }} className="mt-[10px] text-center text-sm pl-[10%] pr-[10%] text-[#475060]">{sessions[0] ? documentToReactComponents(sessions[0].description.json) : ""}</p>
+							<h1 style={{ fontFamily: 'Lato' }} className="font-bold text-3xl text-[#142630]">{sessions[props.index] ? sessions[props.index].title : ""}</h1>
+							<p style={{ fontFamily: 'Lato' }} className="mt-[10px] text-center text-sm pl-[10%] pr-[10%] text-[#475060]">{sessions[props.index] ? documentToReactComponents(sessions[props.index].description.json) : ""}</p>
 						</div>
 						<div className="flex mt-[10px] flex-col w-full">
 							<Date
