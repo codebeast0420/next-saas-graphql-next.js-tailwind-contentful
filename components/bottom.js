@@ -2,7 +2,7 @@ import Logo from "./logo";
 
 const Bottom = () => {
 	return (
-		<div className="bg-[#475060] pl-[10%] pr-[10%] pt-[50px] pb-[50px] w-full flex flex-col items-center">
+		<div className="bg-[#475060] pl-[10%] pr-[10%] pt-[50px] pb-[50px] w-full relative z-[11] flex flex-col items-center">
 			<div style={{ maxWidth: "1374px" }}>
 				<div className="flex justify-between">
 					<Logo />
