@@ -8,15 +8,15 @@ import Date from "./date";
 import SupportBar from "./supportbar";
 import FactAndQuote from "./factAndQuote";
 import Bottom from "./bottom";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 const IntroHome = (props) => {
 
-	const [sessionTitle, setSessionTitle] = useState('');
-	const [sessionData, setSessionData] = useState('');
-	const [days, setDays] = useState(props.days);
-	const [hours, setHours] = useState(props.hours);
-	const [mins, setMins] = useState(props.mins);
-	const [secs, setSecs] = useState(40);
+	const [sessions, setSessions] = useState([]);
+	const [days, setDays] = useState(0);
+	const [hours, setHours] = useState(0);
+	const [mins, setMins] = useState(0);
+	const [secs, setSecs] = useState(0);
 
 
 	const dateTime = () => {
@@ -41,10 +41,14 @@ const IntroHome = (props) => {
 	}
 
 	useEffect(() => {
-		getSession().then((res) => {
-			setSessionTitle(res.items[1].title);
-			setSessionData(res.items[1].description.json.content[0].content[0].value);
-		});
+		setSessions(props.sessions);
+	})
+
+	useEffect(() => {
+		setDays(parseInt(props.rest / 86400000));
+		setHours(parseInt((props.rest % (3600000 * 24 )) / 3600000));
+		setMins(parseInt((props.rest % 3600000) / 60000));
+		setSecs(parseInt((props.rest % 60000) / 1000));
 	}, [])
 
 	useEffect(() => {
@@ -62,11 +66,15 @@ const IntroHome = (props) => {
 					<div className=" p-[30px] w-2/3 bg-white flex flex-col items-center z-1" >
 						<p className="text-[#FF9900]" style={{ fontFamily: "Lato" }}>First Session</p>
 						<div className="mt-[10px] flex flex-col items-center">
-							<h1 style={{ fontFamily: 'Lato' }} className="font-bold text-3xl text-[#142630]">{sessionTitle}</h1>
-							<p style={{ fontFamily: 'Lato' }} className="mt-[10px] text-center text-sm pl-[10%] pr-[10%] text-[#475060]">{sessionData}</p>
+							<h1 style={{ fontFamily: 'Lato' }} className="font-bold text-3xl text-[#142630]">{sessions[0] ? sessions[0].title : ""}</h1>
+							<p style={{ fontFamily: 'Lato' }} className="mt-[10px] text-center text-sm pl-[10%] pr-[10%] text-[#475060]">{sessions[0] ? documentToReactComponents(sessions[0].description.json) : ""}</p>
 						</div>
 						<div className="flex mt-[10px] flex-col w-full">
-							<Date date={"January 22, 2023"} time={"03:00PM - 05:00PM ET"} className={"justify-center "} />
+							<Date
+								date={props.first_date}
+								time={props.first_time}
+								className={"justify-center "}
+							/>
 							<div className=" flex justify-between mt-[-30px]">
 								<Image src="/src/img/megaphone1.png" width={60} height={60} alt="megaphone left" />
 								<Image src="/src/img/megaphone2.png" width={60} height={60} alt="megaphone right" />
