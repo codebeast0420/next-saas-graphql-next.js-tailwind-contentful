@@ -71,7 +71,7 @@ const Header = ({ setIntro, current }) => {
                 </a>
               </li>
               <li style={{ fontFamily: "Lato" }}>
-                <button className="peer px-5 py-2 flex flex-col items-center text-[#475060] rounded font-semibold  hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">
+                <button className={`peer px-5 py-2 flex flex-col items-center ${current === 4 ? "text-blue-700  md:text-blue-700" : "text-[#475060]"} rounded font-semibold  hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0`}>
                   UPCOMING SESSIONS
                   {current === 4 && (
                     <svg className='mt-[30px]' width="20" height="3" viewBox="0 0 20 3" fill="none" xmlns="http://www.w3.org/2000/svg">
