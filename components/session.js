@@ -26,12 +26,12 @@ const Session = () => {
 
 	const convertTime = (start, end) => {
 		const start_date = new Date(start);
-		const start_noon = parseInt((start_date.getHours(start_date) + 11) % 12) > 1 ? "PM" : "AM";
-		const start_time = parseInt((start_date.getHours(start_date) + 11) % 12) > 9 ? parseInt((start_date.getHours(start_date) + 11) % 12) : "0" + parseInt((start_date.getHours(start_date) + 11) % 12);
+		const start_noon = parseInt((start_date.getHours(start_date)) / 12) > 1 ? "PM" : "AM";
+		const start_time = parseInt((start_date.getHours(start_date)) % 12) > 9 ? parseInt((start_date.getHours(start_date) ) % 12) : "0" + parseInt((start_date.getHours(start_date)) % 12);
 		const start_min = start_date.getUTCMinutes(start_date) > 9 ? start_date.getUTCMinutes(start_date) : "0" + start_date.getUTCMinutes(start_date);
 		const end_date = new Date(end);
-		const end_noon = parseInt((end_date.getHours(end_date) + 11) % 12) > 1 ? "PM" : "AM";
-		const end_time = parseInt((end_date.getHours(end_date) + 11) % 12) > 9 ? parseInt((end_date.getHours(end_date) + 11) % 12) : "0" + parseInt((end_date.getHours(end_date) + 11) % 12);
+		const end_noon = parseInt((end_date.getHours(end_date)) / 12) > 1 ? "PM" : "AM";
+		const end_time = parseInt((end_date.getHours(end_date)) % 12) > 9 ? parseInt((end_date.getHours(end_date)) % 12) : "0" + parseInt((end_date.getHours(end_date)) % 12);
 		const end_min = end_date.getUTCMinutes(end_date) > 9 ? end_date.getUTCMinutes(end_date) : "0" + end_date.getUTCMinutes(end_date);
 		const dateString = `${start_time}:${start_min} ${start_noon} - ${end_time}:${end_min} ${end_noon}`
 		return dateString;
