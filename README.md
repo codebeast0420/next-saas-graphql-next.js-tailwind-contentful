@@ -1,6 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
+##Over View
+This is the Next.js app using GraphQL, Tailwind CSS and Contentful CMS.
 
 First, run the development server:
 
